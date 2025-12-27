@@ -66,4 +66,10 @@ latencia = df.groupby(['model', 'prompt_label']).agg(
 ).reset_index()
 latencia.to_csv('strategy1/latencia.csv', index=False)
 
+# 5. tanda_score_perf.csv: Calidad de la respuesta (promedio de score) por técnica
+tanda_score_perf = df.groupby(['tanda', 'model', 'prompt_label']).agg(
+    avg_score=('score', 'mean')
+).reset_index()
+tanda_score_perf.to_csv('strategy1/tanda_score_perf.csv', index=False)
+
 print("Procesamiento completado. Los CSVs han sido generados.")
