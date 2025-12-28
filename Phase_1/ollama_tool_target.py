@@ -1,14 +1,14 @@
 import json
 import requests
-from typing import Optional, List
-from pyrit.models import Message
-from pyrit.prompt_target import HTTPTarget, PromptChatTarget
-from pyrit.interfaces import PromptTarget
+import os
+from typing import Optional, List, Any
+from pyrit.models import Message, MessagePiece
+from pyrit.prompt_target import PromptChatTarget
+from dotenv import load_dotenv
 
-# --------------------------------------------------------------------------
-# 1. Definición del Tool Schema (CONSTANTE para el ataque)
-# Lo definimos aquí para inyectarlo en el constructor de la clase.
-# --------------------------------------------------------------------------
+load_dotenv()
+
+# Esquema de la herramienta para el ataque
 TOOL_SCHEMA = [
     {
         "type": "function",
@@ -28,78 +28,69 @@ TOOL_SCHEMA = [
 ]
 
 class OllamaToolTarget(PromptChatTarget):
-    """Custom PromptTarget para Ollama, capaz de manejar Tool Calling y System Prompts."""
-    
-    def __init__(self, endpoint_url: str, model: str, system_prompt: str, **kwargs) -> None:
-        """
-        Inicializa el Target con la URL de Ollama, el modelo y el System Prompt.
-        
-        Args:
-            endpoint_url: URL base del servidor Ollama (ej: http://localhost:11434).
-            model: Nombre del modelo a usar (ej: llama3.2:latest).
-            system_prompt: La instrucción de seguridad/rol (se inyecta en el contexto).
-        """
-        # Llamar al constructor de la clase padre (PromptChatTarget, que hereda de PromptTarget)
-        # Esto permite que PyRIT maneje el historial y los System Prompts.
+    def __init__(self, endpoint_url: str, model: str, system_prompt: Optional[str] = None, is_scorer: bool = False, **kwargs) -> None:
         super().__init__(**kwargs)
-        
-        self.endpoint_url = endpoint_url.rstrip('/') # Elimina barra final
+        self.endpoint_url = endpoint_url.rstrip('/')
         self.model = model
-        self.default_system_prompt = system_prompt
+        self.is_scorer = is_scorer
+        self.default_system_prompt = os.getenv("PROMPT") or system_prompt or "You are a helpful assistant."
         self.session = requests.Session()
         
     async def send_prompt_async(self, *, message: Message) -> Message:
-        """
-        Anula el método para construir la solicitud JSON específica de la API de Ollama (/api/chat).
-        """
+        user_prompt = ""
+        pieces = getattr(message, 'message_pieces', None) or getattr(message, 'request_pieces', [])
         
-        # El mensaje de entrada contiene el Prompt mutado (del usuario)
-        user_prompt = message.prompt_request.request_pieces[0].original_value
-        
-        # El historial de la conversación (messages) debe incluir el system prompt primero.
-        messages = [
+        if not pieces and hasattr(message, 'prompt_request'):
+            pieces = getattr(message.prompt_request, 'request_pieces', [])
+            
+        if pieces:
+            user_prompt = pieces[0].converted_value or pieces[0].original_value
+        else:
+            user_prompt = str(message)
+
+        api_messages = [
             {"role": "system", "content": self.default_system_prompt},
             {"role": "user", "content": user_prompt}
         ]
         
-        # Construir el cuerpo JSON EXACTO que probaste con curl
         payload = {
             "model": self.model,
-            "messages": messages,
-            "tools": TOOL_SCHEMA, # Inyectamos el Tool Schema aquí
-            "stream": False # Desactivar streaming para PyRIT
+            "messages": api_messages,
+            "stream": False
         }
-        
-        url = f"{self.endpoint_url}/api/chat"
-        headers = {"Content-Type": "application/json"}
+
+        if not self.is_scorer:
+            payload["tools"] = TOOL_SCHEMA
         
         try:
-            # Enviar la solicitud HTTP
-            response = self.session.post(url, headers=headers, json=payload, timeout=30)
-            response.raise_for_status() # Lanza una excepción si la respuesta no es 200 OK
+            response = self.session.post(f"{self.endpoint_url}/api/chat", json=payload, timeout=60)
+            response.raise_for_status()
             
-            # Ollama devuelve la respuesta en JSON
-            response_json = response.json()
+            resp_data = response.json().get("message", {})
+            content_text = resp_data.get("content", "")
             
-            # Extraer el contenido de la respuesta (el Tool Call o el texto de rechazo)
-            assistant_message = response_json.get("message", {})
-            
-            # Aquí es donde PyRIT debe registrar el resultado (la respuesta bruta)
-            # Retornamos un nuevo objeto Message con la respuesta para que PyRIT la guarde en la memoria.
-            return Message(
-                role="assistant",
-                content=json.dumps(assistant_message), # Guardamos el JSON completo de la respuesta del LLM
-                message_type="response",
-            )
+            if "tool_calls" in resp_data:
+                tools_json = json.dumps(resp_data["tool_calls"])
+                full_output = f"{content_text} [TOOL_CALLS]: {tools_json}".strip()
+            else:
+                full_output = content_text
 
-        except requests.exceptions.RequestException as e:
-            # Manejar errores de conexión o API
-            print(f"Error al enviar prompt a Ollama: {e}")
-            return Message(role="assistant", content=f"ERROR: {str(e)}", message_type="response")
+            new_piece = MessagePiece(role="assistant", original_value=full_output)
+            return Message([new_piece]) 
 
-    # Los métodos abstractos de PromptTarget deben estar definidos
-    def set_system_prompt(self, prompt: str) -> None:
-        self.default_system_prompt = prompt
+        except Exception as e:
+            error_piece = MessagePiece(role="assistant", original_value=f"ERROR: {str(e)}")
+            return Message([error_piece])
+
+    def _validate_request(self, *, prompt_request: Any) -> None:
+        pass 
+
+    def is_json_response_supported(self) -> bool:
+        return True
+
+    def set_system_prompt(self, system_prompt: str, **kwargs) -> None:
+        """Establece el prompt del sistema. Definido para ser compatible con llamadas de PyRIT."""
+        self.default_system_prompt = system_prompt
         
     def get_token_limit(self) -> int:
-        return 4096 # Límite genérico para el contexto.
+        return 4096
