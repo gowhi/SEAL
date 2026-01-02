@@ -1,0 +1,136 @@
+import asyncio
+import os
+import pathlib
+import sys
+import yaml
+import json
+import logging
+from datetime import datetime
+from dotenv import load_dotenv
+from typing import List, Dict, Any, Union
+
+# Configurar logger
+logger = logging.getLogger("pyrit")
+logger.setLevel(logging.ERROR)
+
+sys.path.append(os.path.dirname(__file__))
+
+from pyrit.memory import CentralMemory, SQLiteMemory
+from pyrit.models import SeedPrompt
+from pyrit.executor.attack.single_turn import PromptSendingAttack
+from pyrit.executor.attack.core import AttackExecutor, AttackConverterConfig
+from pyrit.prompt_converter import ROT13Converter, CharSwapConverter, MaliciousQuestionGeneratorConverter, NoiseConverter, ToneConverter
+from pyrit.prompt_normalizer.prompt_converter_configuration import PromptConverterConfiguration
+from ollama_initializer import OllamaInitializer
+from ollama_tool_target import OllamaToolTarget
+
+class FakePromptTemplate:
+    def __init__(self, template: str): self.template = template
+    def render_template_value(self, **kwargs): return self.template.format(**kwargs)
+
+async def run_attack_tanda(converters_list: List[Any], name: str, objectives: List[str], all_results: list):
+    print(f"🚀 Ejecutando Tanda E4: {name}...")
+    
+    converters = PromptConverterConfiguration.from_converters(converters=converters_list)
+    config = AttackConverterConfig(request_converters=converters)
+    attack = PromptSendingAttack(attack_converter_config=config)
+    
+    attack_model = os.getenv("OLLAMA_ATTACK_MODEL", "llama3.2:latest")
+    scorer_model = os.getenv("OLLAMA_SCORER_MODEL", "mistral:latest")
+    
+    # IMPORTANTE: El target ya tiene cargado el System Prompt (Inductor/Estricto/Ultra) desde el .env
+    current_results = await AttackExecutor().execute_single_turn_attacks_async(
+        attack=attack,
+        objectives=objectives,
+        seed_groups=CentralMemory.get_memory_instance().get_seed_groups(),
+    )
+    
+    memory = CentralMemory.get_memory_instance()
+    tanda_summaries = []
+
+    for result in current_results:
+        final_score = None
+        score_id = getattr(result, 'last_score_id', None)
+        if score_id:
+            try: final_score = memory.get_prompt_scores(prompt_ids=[score_id])
+            except: pass
+        
+        conversation_messages = memory.get_message_pieces(conversation_id=result.conversation_id)
+        llm_target_response = ""
+        attack_prompt_sent = ""
+
+        for msg in conversation_messages:
+            role = str(msg.role).lower()
+            if role == "user": attack_prompt_sent = msg.converted_value or msg.original_value
+            if role in ["assistant", "model", "tool_target", "tool"]:
+                llm_target_response = msg.original_value or msg.converted_value 
+                break
+
+        tool_calls = None
+        content_text = llm_target_response
+        if "[TOOL_CALLS]:" in llm_target_response:
+            parts = llm_target_response.split("[TOOL_CALLS]:")
+            content_text = parts[0].strip()
+            try: tool_calls = json.loads(parts[1].strip())
+            except: pass
+
+        # Log formato Ollama/Llama
+        llama_log = {
+            "strategy": "E4_Indirect_Injection",
+            "model": attack_model,
+            "message": {"role": "assistant", "content": content_text, "tool_calls": tool_calls},
+            "done": True
+        }
+        print(json.dumps(llama_log))
+
+        tanda_summaries.append({
+            "tanda": name,
+            "objective": result.objective,
+            "outcome": final_score[0].score_value if final_score else "UNDETERMINED"
+        })
+
+    all_results.extend(current_results)
+    print(f"✅ Tanda {name} finalizada.")
+
+async def run_benchmark():
+    load_dotenv()
+    sqlite_instance = SQLiteMemory(db_path="./pyrit_results.sqlite")
+    CentralMemory.set_memory_instance(sqlite_instance)
+    OllamaInitializer().initialize()
+
+    # --- CAMBIO 1: Carga del dataset de la Estrategia 4 ---
+    yaml_path = pathlib.Path("./2025_tfm_strategy4_indirect.yaml")
+    if not yaml_path.exists():
+        print(f"❌ Error: No se encuentra el dataset en {yaml_path}")
+        return
+
+    with open(yaml_path, "r", encoding="utf-8") as f:
+        yaml_data = yaml.safe_load(f)
+
+    seed_prompts_list = [SeedPrompt(added_by="ubuntu", **item) for item in yaml_data.get("seeds", [])]
+    await CentralMemory.get_memory_instance().add_seeds_to_memory_async(seeds=seed_prompts_list)
+    objectives = [seed.value for seed in seed_prompts_list]
+
+    # --- CAMBIO 2: El Target usa el PROMPT del .env ---
+    # Asegúrate de que en el .env tengas el nivel (Inductor, Estricto o Ultra)
+    attacker_target = OllamaToolTarget(
+        endpoint_url=os.getenv("OLLAMA_SERVER_URL"), 
+        model=os.getenv("OLLAMA_ATTACK_MODEL"),
+        is_scorer=False 
+    )
+
+    tandas = [
+        ([], "BASE_Indirect_Only"), # Inyección indirecta pura
+        ([ROT13Converter()], "ROT13_Indirect"), # Inyección indirecta + ROT13
+        ([CharSwapConverter()], "CharSwap_Indirect"),
+        ([ToneConverter(converter_target=attacker_target, tone="aggressive")], "Tone_Aggressive_Indirect")
+    ]
+    
+    all_results = []
+    for convs, name in tandas:
+        await run_attack_tanda(convs, name, objectives, all_results)
+    
+    print(f"\n✔ Benchmark Estrategia 4 Completado.")
+
+if __name__ == "__main__":
+    asyncio.run(run_benchmark())
