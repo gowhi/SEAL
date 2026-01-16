@@ -39,7 +39,7 @@ def generar_radares_estrategia3(ruta_csv, carpeta_salida='strategy3'):
     }
 
     formated_names = {
-        'gpt-oss-target': 'GPT-4o (OSS Target)',
+        'gpt-oss-target': 'GPT-OSS (20B)',
         'llama': 'Llama 3.2 (3B)',
         'mistral-target': 'Mistral-7B-v0.3',
         'qwen-coder-target': 'Qwen 2.5 Coder'

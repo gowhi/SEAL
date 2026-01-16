@@ -19,7 +19,7 @@ def generar_scatter_tradeoff_s3(ruta_summary, ruta_latencia, output_dir='strateg
 
     # 2. Formatear nombres para el TFM
     formated_names = {
-        'gpt-oss-target': 'GPT-4o (OSS)',
+        'gpt-oss-target': 'GPT-OSS (20B)',
         'llama': 'Llama 3.2 (3B)',
         'mistral-target': 'Mistral-7B',
         'qwen-coder-target': 'Qwen 2.5 Coder'

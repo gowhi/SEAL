@@ -17,7 +17,7 @@ def generar_heatmap_calidad_e2(ruta_csv):
     
     # Mapeo de nombres para consistencia en el TFM
     formated_names = {
-        'gpt-oss-target': 'GPT-4o (20B)',
+        'gpt-oss-target': 'GPT-OSS (20B)',
         'llama': 'Llama 3.2 (3B)',
         'mistral-target': 'Mistral-7B',
         'qwen-coder-target': 'Qwen 2.5'

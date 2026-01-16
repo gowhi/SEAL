@@ -39,7 +39,7 @@ def generar_radares_seguridad(ruta_csv):
 
     # Mapeo de nombres internos del CSV a nombres de visualización para el TFM
     formated_names = {
-        'gpt-oss-target': 'GPT-4o (OSS Target)',
+        'gpt-oss-target': 'GPT-OSS (20B)',
         'llama': 'Llama 3.2 (3B)',
         'mistral-target': 'Mistral-7B-v0.3',
         'qwen-coder-target': 'Qwen 2.5 Coder'

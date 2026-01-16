@@ -13,7 +13,7 @@ def generar_scatter_tradeoff_final(ruta_summary, ruta_latencia):
 
     # 3. Formatear nombres
     formated_names = {
-        'gpt-oss-target': 'GPT-4o',
+        'gpt-oss-target': 'GPT-OSS (20B)',
         'llama': 'Llama 3.2',
         'mistral-target': 'Mistral-7B',
         'qwen-coder-target': 'Qwen 2.5'

@@ -8,7 +8,7 @@ def generar_grafico_progresion(ruta_summary):
 
     # 2. Mapeo de nombres para el TFM
     formated_names = {
-        'gpt-oss-target': 'GPT-4o',
+        'gpt-oss-target': 'GPT-OSS (20B)',
         'llama': 'Llama 3.2',
         'mistral-target': 'Mistral-7B',
         'qwen-coder-target': 'Qwen 2.5'

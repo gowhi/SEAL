@@ -16,7 +16,7 @@ def generar_grafico_progresion_s3(ruta_summary, carpeta_salida='strategy3'):
 
     # 2. Mapeo de nombres para el TFM
     formated_names = {
-        'gpt-oss-target': 'GPT-4o (OSS)',
+        'gpt-oss-target': 'GPT-OSS (20B)', 
         'llama': 'Llama 3.2 (3B)',
         'mistral-target': 'Mistral-7B',
         'qwen-coder-target': 'Qwen 2.5 Coder'
