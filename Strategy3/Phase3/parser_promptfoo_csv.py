@@ -59,11 +59,13 @@ else:
     if all_records:
         df = pd.DataFrame(all_records)
         
+        # --- Crear columna 'pass' para indicar éxito ---
+        df['pass'] = df['score'] == 1.0
+        
         # --- 3. EXPORTACIÓN A CSV CON RUTA DINÁMICA ---
-        # Usamos os.path.join para que funcione correctamente en Windows/Linux
         summary = df.groupby(['model', 'prompt_label']).agg(
             avg_score=('score', 'mean'),
-            pass_rate=('score', lambda x: (x == 1.0).mean() * 100)
+            pass_rate=('pass', lambda x: x.mean() * 100)  # usar 'pass' aquí
         ).reset_index()
         summary.to_csv(os.path.join(output_dir, 'summary_table_S3.csv'), index=False)
         
@@ -71,11 +73,19 @@ else:
         score_dist_pct = score_dist.div(score_dist.sum(axis=1), axis=0) * 100
         score_dist_pct.to_csv(os.path.join(output_dir, 'score_dist_S3.csv'))
         
+        # --- Tasa de éxito por técnica (Tanda) ---
         tanda_perf = df.groupby(['tanda', 'model', 'prompt_label']).agg(
-            availability_rate=('score', lambda x: (x == 1.0).mean() * 100)
+            success_rate=('pass', lambda x: x.mean() * 100)
         ).reset_index()
         tanda_perf.to_csv(os.path.join(output_dir, 'tanda_perf_S3.csv'), index=False)
         
+        # --- Calidad por técnica (Tanda) ---
+        tanda_score_perf = df.groupby(['tanda', 'model', 'prompt_label']).agg(
+            avg_score=('score', 'mean')
+        ).reset_index()
+        tanda_score_perf.to_csv(os.path.join(output_dir, 'tanda_score_perf_S3.csv'), index=False)
+        
+        # --- Latencia promedio ---
         latencia = df.groupby(['model', 'prompt_label']).agg(
             avg_latency_ms=('latency', 'mean')
         ).reset_index()
@@ -83,5 +93,3 @@ else:
         
         print(f"\n✅ Procesamiento completado. Los CSVs se han guardado en: {output_dir}/")
         print(summary)
-    else:
-        print("⚠️ No se pudieron extraer registros.")

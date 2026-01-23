@@ -1,4 +1,4 @@
-tanda,model,prompt_label,availability_rate
+tanda,model,prompt_label,success_rate
 BASE_SinConversion,gpt-oss-target,Estricto,27.77777777777778
 BASE_SinConversion,gpt-oss-target,Inductor,11.11111111111111
 BASE_SinConversion,gpt-oss-target,Ultra,100.0
