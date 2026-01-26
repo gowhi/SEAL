@@ -67,9 +67,14 @@ def generar_radares_estrategia3(ruta_csv, carpeta_salida='strategy3'):
             ax.set_xticks(angles[:-1])
             ax.set_xticklabels(categories, fontsize=8, fontweight='bold')
             ax.set_ylim(0, 1.1)
+
+            #new
+            ax.tick_params(axis='y', labelsize=14)
+            ax.set_xticklabels(categories, fontsize=14)
+            ax.tick_params(axis='x', pad=15)
             
             display_name = formated_names.get(model_name, model_name.upper())
-            ax.set_title(f"{display_name}", size=12, pad=20, color=color, fontweight='bold')
+            ax.set_title(f"{display_name}", size=14, pad=20, color=color, fontweight='bold')
         except KeyError as e:
             print(f"Error procesando modelo {model_name}: Faltan datos de etiquetas.")
 
@@ -85,7 +90,7 @@ def generar_radares_estrategia3(ruta_csv, carpeta_salida='strategy3'):
                  fontsize=18, fontweight='bold', y=1.02)
     
     plt.tight_layout(pad=3.0)
-    output_path = f'{carpeta_salida}/radar_comparativo_S3.png'
+    output_path = f'{carpeta_salida}/radar_comparativo_S3_.png'
     plt.savefig(output_path, bbox_inches='tight', dpi=300)
     print(f"✅ Gráfico de radar guardado en: {output_path}")
 

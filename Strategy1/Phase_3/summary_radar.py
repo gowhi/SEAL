@@ -70,7 +70,13 @@ def generar_radares_seguridad(ruta_csv):
         ax.set_xticks(angles[:-1]) # Define edge labels
         ax.set_xticklabels(categories, fontsize=9, fontweight='bold') # Set category labels of edges
         ax.set_ylim(0, 1.1) # Set y-axis limits
-        display_name = formated_names.get(model_name, model_name.upper()) # Get display name  
+
+        #new
+        ax.tick_params(axis='y', labelsize=14)
+        ax.set_xticklabels(categories, fontsize=14)
+        ax.tick_params(axis='x', pad=15)
+
+        display_name = formated_names.get(model_name, model_name.upper()) # Get display name
         ax.set_title(f"MODEL: {display_name}", size=14, pad=30, color=color, fontweight='bold') # Title with color
     fig, axes = plt.subplots(2, 2, figsize=(14, 14), subplot_kw=dict(polar=True)) # 2x2 grid for 4 models
     axes = axes.flatten() # Flatten to easily iterate over
@@ -81,7 +87,7 @@ def generar_radares_seguridad(ruta_csv):
         draw_radar(axes[i], modelo, color_actual)  # Draw radar for each model
 
     plt.tight_layout(pad=5.0) # Adjust layout to prevent overlap
-    output_path = 'strategy1/radar_comparativo.png' # Output path for the radar chart
+    output_path = 'strategy1/radar_comparativo2.png' # Output path for the radar chart
     plt.savefig(output_path, dpi=300) # Save with higher resolution for the report
     print(f"Radar graph saved at: {output_path}")
 

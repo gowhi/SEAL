@@ -1,77 +1,77 @@
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-import matplotlib.ticker as ticker
+import matplotlib as mpl
 import os
 
-def generar_scatter_tradeoff_e2(ruta_summary, ruta_latencia):
-    if not os.path.exists(ruta_summary) or not os.path.exists(ruta_latencia):
-        print("Error: Faltan archivos de entrada en la carpeta strategy2")
+def generar_grafico_progresion_e2(ruta_summary):
+    print(f"--- Iniciando: Gráfico de Tendencia de Hardening (E2) ---")
+    
+    # 1. Validación de la ruta
+    if not os.path.exists(ruta_summary):
+        print(f"❌ Error: No se encuentra el archivo en {ruta_summary}")
         return
 
-    # 1. Cargar y Unir datos
-    summary_df = pd.read_csv(ruta_summary)
-    latencia_df = pd.read_csv(ruta_latencia)
-    df_plot = pd.merge(summary_df, latencia_df, on=['model', 'prompt_label'])
+    # 2. Cargar el CSV resumen
+    df = pd.read_csv(ruta_summary)
 
-    # 2. Formatear nombres
+    # 3. Mapeo de nombres para el TFM (Consistente con tus otros gráficos de E2)
     formated_names = {
         'gpt-oss-target': 'GPT-OSS (20B)',
         'llama': 'Llama 3.2 (3B)',
         'mistral-target': 'Mistral-7B',
         'qwen-coder-target': 'Qwen 2.5'
     }
-    df_plot['model'] = df_plot['model'].map(formated_names)
+    df['model'] = df['model'].map(formated_names)
 
-    # 3. Crear el gráfico
-    plt.figure(figsize=(12, 8))
+    # 4. ORDENAR LOS NIVELES
+    orden_hardening = ['Inductor', 'Estricto', 'Ultra']
+    df['prompt_label'] = pd.Categorical(df['prompt_label'], categories=orden_hardening, ordered=True)
+    df = df.sort_values('prompt_label')
+
+    # 5. Crear el gráfico (Mismo tamaño que E1: 10x6)
+    plt.figure(figsize=(10, 6))
     sns.set_style("whitegrid")
 
-    # Scatter plot con estilo por nivel de hardening
-    scatter = sns.scatterplot(
-        data=df_plot,
-        x='avg_latency_ms',
-        y='pass_rate',
-        hue='model',
-        style='prompt_label',
-        s=350, # Puntos muy visibles
-        alpha=0.75,
-        edgecolor='black',
-        palette='viridis' # Una paleta distinta para diferenciar de E1
+    # Dibujamos las líneas con los mismos parámetros de E1
+    line_plot = sns.lineplot(
+        data=df, 
+        x='prompt_label', 
+        y='pass_rate', 
+        hue='model', 
+        marker='o',      
+        linewidth=3,     
+        markersize=10    
     )
 
-    # 4. Escala Logarítmica para Latencia
-    plt.xscale('log') 
+    # 6. Personalización estética (Mismos tamaños que E1)
+    plt.title(r'Tendencia de $\mathit{Hardening}$: Evolución de la Seguridad' + '\n' + 
+              r'E2: $\mathit{System\ Prompt\ Exfiltration}$', 
+              fontsize=18, fontweight='bold', pad=25)
     
-    # IMPORTANTE: Eliminamos el zoom para ver la caída libre de los modelos en E2
-    plt.ylim(-5, 105) 
-    
-    # Ticks legibles basados en tus resultados reales (900ms a 17s)
-    plt.xticks([900, 1000, 5000, 10000, 17000], ["900ms", "1s", "5s", "10s", "17s"])
-    plt.gca().xaxis.set_major_formatter(ticker.ScalarFormatter())
+    plt.xlabel(r'Nivel de Restricción del $\mathit{System\ Prompt}$', fontsize=18, labelpad=15)
+    plt.ylabel(r'Tasa de Bloqueo Exitoso ($\mathit{Pass\ Rate\ \%}$)', fontsize=18, labelpad=15)
 
-    # 5. Etiquetas de los puntos para claridad total
-    for i in range(df_plot.shape[0]):
-        plt.text(
-            df_plot.avg_latency_ms[i], 
-            df_plot.pass_rate[i] + 2.5, 
-            f"{df_plot.prompt_label[i]}", 
-            fontsize=9, 
-            ha='center',
-            alpha=0.8
-        )
+    # Ajustamos el límite para ver las caídas de seguridad en E2
+    plt.ylim(0, 105) 
 
-    plt.title('E2: Trade-off Eficiencia vs. Confidencialidad', fontsize=18, fontweight='bold', pad=25)
-    plt.xlabel('Latencia Media (ms) - Escala Logarítmica', fontsize=13)
-    plt.ylabel('Tasa de Bloqueo Exitoso (Pass Rate %)', fontsize=13)
-    
-    plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', title='Modelos y Hardening')
+    # Leyenda fuera del gráfico (Mismos tamaños que E1)
+    plt.legend(title='Modelos', bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=14, title_fontsize=14)
+
+    # Tamaño de los valores en los ejes (Ticks)
+    plt.xticks(fontsize=16)
+    plt.yticks(fontsize=16)
+
     plt.tight_layout()
-    
-    # 6. Guardar
-    output_path = 'strategy2/scatter_tradeoff_E2.png'
-    plt.savefig(output_path, dpi=300, bbox_inches='tight')
-    print(f"✅ Gráfico de Trade-off E2 generado en: {output_path}")
 
-# Ejecución
-generar_scatter_tradeoff_e2('strategy2/summary_table.csv', 'strategy2/latencia.csv')
+    # 7. Guardar la imagen en la carpeta de estrategia 2
+    if not os.path.exists('strategy2'):
+        os.makedirs('strategy2')
+        
+    output_path = 'strategy2/hardening_progression_trend_E2.png'
+    plt.savefig(output_path, dpi=300, bbox_inches='tight')
+    plt.close()
+    print(f"✅ Gráfico de tendencia E2 generado en: {output_path}")
+
+# Ejecutar con el archivo de la carpeta strategy2
+generar_grafico_progresion_e2('strategy2/summary_table.csv')

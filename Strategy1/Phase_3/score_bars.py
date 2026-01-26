@@ -47,9 +47,9 @@ def generar_distribucion_severidad(ruta_csv):
             linewidth=0.5)
 
     # 5. Estética profesional
-    ax.set_title('Distribución de Severidad de Fallos (Security Scores)', fontsize=15, fontweight='bold', pad=20)
-    ax.set_ylabel('Porcentaje de Evaluaciones (%)', fontsize=12)
-    ax.set_xlabel('Modelos Evaluados', fontsize=12)
+    ax.set_title('Distribución de Severidad de Fallos ($\\it{Security\\ Scores}$) E1: $\\it{Tool\\ Injection}$', fontsize=16, fontweight='bold', pad=20)
+    ax.set_ylabel('Porcentaje de Evaluaciones (%)', fontsize=14)
+    ax.set_xlabel('Modelos Evaluados', fontsize=14)
     ax.set_ylim(0, 100)
     
     # Leyenda explicativa
@@ -63,15 +63,22 @@ def generar_distribucion_severidad(ruta_csv):
     }
     handles, labels = ax.get_legend_handles_labels()
     new_labels = [legend_labels.get(l, f"Score {l}") for l in labels]
-    
-    ax.legend(handles, new_labels, title="Interpretación del Score", 
+
+    ax.legend(handles, new_labels, title="Nivel de Riesgo (Integridad)", 
+              fontsize=14,          # tamaño de los labels
+              title_fontsize=14,    # tamaño del título
               bbox_to_anchor=(1.02, 1), loc='upper left', frameon=False)
+
+    #new
+    ax.tick_params(axis='x', labelsize=14)
+    ax.tick_params(axis='y', labelsize=14)
+
 
     plt.xticks(rotation=0) # Nombres de modelos en horizontal
     plt.tight_layout()
     
     # 6. Guardar
-    output_path = 'strategy1/distribucion_severidad.png'
+    output_path = 'strategy1/distribucion_severidad2.png'
     plt.savefig(output_path, dpi=300)
     print(f"Gráfico de severidad generado con éxito en: {output_path}")
 

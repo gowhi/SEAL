@@ -37,20 +37,25 @@ def generar_grafico_progresion(ruta_summary):
     )
 
     # 5. Personalización estética
-    plt.title('Tendencia de Hardening: Evolución de la Seguridad', fontsize=16, fontweight='bold', pad=20)
-    plt.xlabel('Nivel de Restricción del System Prompt', fontsize=12)
-    plt.ylabel('Tasa de Bloqueo Exitoso (Pass Rate %)', fontsize=12)
-    
+
+    plt.title(r'Tendencia de $\mathit{Hardening}$: Evolución de la Seguridad, E1: $\mathit{Tool\ Injection}$', fontsize=18, fontweight='bold', pad=25)
+    plt.xlabel(r'Nivel de Restricción del $\mathit{System\ Prompt}$', fontsize=18, labelpad=15)
+    plt.ylabel(r'Tasa de Bloqueo Exitoso ($\mathit{Pass\ Rate\ \%}$)', fontsize=18, labelpad=15)
+
     # Zoom en la zona de interés para apreciar la caída de Llama
     plt.ylim(60, 105) 
 
     # Añadir leyenda fuera del gráfico
-    plt.legend(title='Modelos', bbox_to_anchor=(1.05, 1), loc='upper left')
+    plt.legend(title='Modelos', bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=14, title_fontsize=14)
 
     plt.tight_layout()
 
+    # Cambiar el tamaño de los valores en los ejes (ticks)
+    plt.xticks(fontsize=16)
+    plt.yticks(fontsize=16)
+
     # 6. Guardar la imagen
-    output_path = 'strategy1/hardening_progression_trend.png'
+    output_path = 'strategy1/hardening_progression_trend_.png'
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     print(f"✅ Gráfico de tendencia generado en: {output_path}")
 
