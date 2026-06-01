@@ -1,0 +1,8 @@
+pyyaml>=6.0
+python-dotenv>=1.0
+requests>=2.30
+pyrit @ git+https://github.com/microsoft/PyRIT.git@e2760a0d9bd4b581fea1fb7e7c985ce586d0af6f
+pandas
+numpy
+matplotlib
+seaborn
