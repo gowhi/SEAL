@@ -1,25 +1,16 @@
-"""
-generate_graphs_combined.py
-Generates combined figures (locals + commercial side by side) for each
-graph type across all three strategies.
-
-Usage:
-    python generate_graphs_combined.py <S1|S2|S3|ALL>
-
-Output folder:
-    results/combined/graphs/
-
-Each output image contains both open-source and commercial panels
-in a single figure, suitable for direct inclusion in the paper.
-
-Structure assumed:
-    Strategy1/Phase_3/results/S1-locals/CSV/
-    Strategy1/Phase_3/results/S1-commercial/CSV/
-    Strategy2/Phase3/results/S2-locals/CSV/
-    Strategy2/Phase3/results/S2-commercial/CSV/
-    Strategy3/Phase3/results/S3-locals/CSV/
-    Strategy3/Phase3/results/S3-commercial/CSV/
-"""
+# =============================================================================
+# graphs_general.py
+# =============================================================================
+# Generates combined figures (open-source + commercial side by side) for each
+# graph type across all three SEAL evaluation strategies.
+#
+# Usage: python graphs_general.py <S1|S2|S3|RADAR|ALL>
+#
+# Output folder: results/combined/graphs/
+#
+# Each output image contains both open-source and commercial panels
+# in a single figure, suitable for direct inclusion in the paper.
+# =============================================================================
 
 import sys
 import os
@@ -31,18 +22,15 @@ import seaborn as sns
 
 mpl.rcParams.update({'font.family': 'sans-serif'})
 
-# ─────────────────────────────────────────────
-# CONFIG
-# ─────────────────────────────────────────────
-
 BASE = os.path.expanduser('~/Documentos/AIBench')
+PHASE4 = 'Phase4_Evaluation'
 
 STRATEGIES = {
     'S1': {
         'label': 'S1: Direct Tool Injection (Integrity)',
         'locals': {
             'prefix': 'S1-locals',
-            'csv_dir': os.path.join(BASE, 'Strategy1/Phase_3/results/S1-locals/CSV'),
+            'csv_dir': os.path.join(BASE, 'Strategy1', PHASE4, 'results/S1-locals/CSV'),
             'model_map': {
                 'gpt-oss-target':    'GPT-OSS',
                 'llama':             'LLaMA 3.2',
@@ -52,7 +40,7 @@ STRATEGIES = {
         },
         'commercial': {
             'prefix': 'S1-commercial',
-            'csv_dir': os.path.join(BASE, 'Strategy1/Phase_3/results/S1-commercial/CSV'),
+            'csv_dir': os.path.join(BASE, 'Strategy1', PHASE4, 'results/S1-commercial/CSV'),
             'model_map': {
                 'haiku':       'Haiku 4.5',
                 'deepseek-v3': 'DeepSeek V3',
@@ -74,7 +62,7 @@ STRATEGIES = {
         'label': 'S2: System Prompt Exfiltration (Confidentiality)',
         'locals': {
             'prefix': 'S2-locals',
-            'csv_dir': os.path.join(BASE, 'Strategy2/Phase3/results/S2-locals/CSV'),
+            'csv_dir': os.path.join(BASE, 'Strategy2', PHASE4, 'results/S2-locals/CSV'),
             'model_map': {
                 'gpt-oss-target':    'GPT-OSS',
                 'llama':             'LLaMA 3.2',
@@ -84,7 +72,7 @@ STRATEGIES = {
         },
         'commercial': {
             'prefix': 'S2-commercial',
-            'csv_dir': os.path.join(BASE, 'Strategy2/Phase3/results/S2-commercial/CSV'),
+            'csv_dir': os.path.join(BASE, 'Strategy2', PHASE4, 'results/S2-commercial/CSV'),
             'model_map': {
                 'haiku':       'Haiku 4.5',
                 'deepseek-v3': 'DeepSeek V3',
@@ -106,7 +94,7 @@ STRATEGIES = {
         'label': 'S3: Indirect Tool Injection & SDoS (Availability)',
         'locals': {
             'prefix': 'S3-locals',
-            'csv_dir': os.path.join(BASE, 'Strategy3/Phase3/results/S3-locals/CSV'),
+            'csv_dir': os.path.join(BASE, 'Strategy3', PHASE4, 'results/S3-locals/CSV'),
             'model_map': {
                 'gpt-oss-target':    'GPT-OSS',
                 'llama':             'LLaMA 3.2',
@@ -116,7 +104,7 @@ STRATEGIES = {
         },
         'commercial': {
             'prefix': 'S3-commercial',
-            'csv_dir': os.path.join(BASE, 'Strategy3/Phase3/results/S3-commercial/CSV'),
+            'csv_dir': os.path.join(BASE, 'Strategy3', PHASE4, 'results/S3-commercial/CSV'),
             'model_map': {
                 'haiku':       'Haiku 4.5',
                 'deepseek-v3': 'DeepSeek V3',
@@ -139,6 +127,17 @@ HARDENING_LABELS = {'Inductor': 'Level I', 'Estricto': 'Level S', 'Ultra': 'Leve
 
 OUT_DIR = os.path.join(BASE, 'results/combined/graphs')
 
+RADAR_STRATEGY_DIRS = {
+    'S1': {'locals': 'S1-locals', 'commercial': 'S1-commercial',
+           'locals_csv': os.path.join(BASE, 'Strategy1', PHASE4, 'results/S1-locals/CSV'),
+           'comm_csv':   os.path.join(BASE, 'Strategy1', PHASE4, 'results/S1-commercial/CSV')},
+    'S2': {'locals': 'S2-locals', 'commercial': 'S2-commercial',
+           'locals_csv': os.path.join(BASE, 'Strategy2', PHASE4, 'results/S2-locals/CSV'),
+           'comm_csv':   os.path.join(BASE, 'Strategy2', PHASE4, 'results/S2-commercial/CSV')},
+    'S3': {'locals': 'S3-locals', 'commercial': 'S3-commercial',
+           'locals_csv': os.path.join(BASE, 'Strategy3', PHASE4, 'results/S3-locals/CSV'),
+           'comm_csv':   os.path.join(BASE, 'Strategy3', PHASE4, 'results/S3-commercial/CSV')},
+}
 
 # ─────────────────────────────────────────────
 # HELPERS
@@ -462,18 +461,6 @@ RADAR_CATEGORIES = [
     'PR Ind.', 'PR Str.', 'PR Ult.',
     'AS Ult.', 'AS Str.', 'AS Ind.',
 ]
-
-RADAR_STRATEGY_DIRS = {
-    'S1': {'locals': 'S1-locals', 'commercial': 'S1-commercial',
-           'locals_csv': os.path.join(BASE, 'Strategy1/Phase_3/results/S1-locals/CSV'),
-           'comm_csv':   os.path.join(BASE, 'Strategy1/Phase_3/results/S1-commercial/CSV')},
-    'S2': {'locals': 'S2-locals', 'commercial': 'S2-commercial',
-           'locals_csv': os.path.join(BASE, 'Strategy2/Phase3/results/S2-locals/CSV'),
-           'comm_csv':   os.path.join(BASE, 'Strategy2/Phase3/results/S2-commercial/CSV')},
-    'S3': {'locals': 'S3-locals', 'commercial': 'S3-commercial',
-           'locals_csv': os.path.join(BASE, 'Strategy3/Phase3/results/S3-locals/CSV'),
-           'comm_csv':   os.path.join(BASE, 'Strategy3/Phase3/results/S3-commercial/CSV')},
-}
 
 RADAR_COLORS = {
     # locals

@@ -1,2 +1,11 @@
 .env
+**/.env
 .vscode
+Results/
+*.sqlite
+.strategy1/
+.strategy2/
+.strategy3/
+Results_reasoning/
+graphs.py
+consutlasOllama.sh
