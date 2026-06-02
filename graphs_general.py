@@ -203,7 +203,7 @@ def plot_severity_distribution(strat_key, scfg):
     fig.legend(handles, labels, title='Score / Outcome', fontsize=10, title_fontsize=11,
                bbox_to_anchor=(1.01, 0.9), loc='upper left', frameon=False)
 
-    fig.suptitle(f'Global Distribution of Failure Severity\n{scfg["label"]}',
+    fig.suptitle(f'Global Distribution of Scores ($S_j$)\n{scfg["label"]}',
                  fontsize=14, fontweight='bold', y=1.02)
     plt.tight_layout()
     save(fig, f'{strat_key}_severity_distribution.png')
@@ -314,8 +314,7 @@ def plot_heatmap_passrate(strat_key, scfg):
                 ax.set_xlabel('')
                 ax.set_xticklabels([])
 
-    title_prefix = 'Resistance Heatmap'
-    fig.suptitle(f'{title_prefix}: Blocking Success Rate (%) by Attack Technique\n{scfg["label"]}',
+    fig.suptitle(f'Pass Rate (%) by Attack Technique\n{scfg["label"]}',
                  fontsize=24, fontweight='bold', y=1.01)
     plt.subplots_adjust(left=0.10, right=0.92, top=0.93, bottom=0.12, hspace=0.08, wspace=0.05)
     save(fig, f'{strat_key}_heatmap_passrate.png')
@@ -376,7 +375,7 @@ def plot_heatmap_avgscore(strat_key, scfg):
                 ax.set_xlabel('')
                 ax.set_xticklabels([])
 
-    fig.suptitle(f'Quality Heatmap: Average Score by Attack Technique\n{scfg["label"]}',
+    fig.suptitle(f'Average Score by Attack Technique\n{scfg["label"]}',
                  fontsize=24, fontweight='bold', y=1.01)
     plt.subplots_adjust(left=0.10, right=0.92, top=0.93, bottom=0.12, hspace=0.08, wspace=0.05)
     save(fig, f'{strat_key}_heatmap_avgscore.png')
@@ -390,7 +389,7 @@ def plot_latency_scatter(strat_key, scfg):
     fig, axes = plt.subplots(1, 2, figsize=(22, 7))
     groups = [('locals', 'Open-Source Models'), ('commercial', 'Commercial Models')]
     ylabel = 'Pass Rate (%)'
-    title_y = 'Latency–Security Trade-off'
+    title_y = 'Latency–Pass Rate Trade-off'
     level_order = ['Level I', 'Level S', 'Level U']
 
     for ax, (grp, grp_label) in zip(axes, groups):

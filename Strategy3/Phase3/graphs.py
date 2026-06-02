@@ -220,7 +220,7 @@ def plot_heatmap_passrate(cfg, out_dir):
             axes[i].set_ylabel('')
 
     fig.suptitle(
-        f'Resistance Heatmap: Semantic Availability Rate (SAR %) by Attack Technique\n{cfg["strategy_label"]}',
+        f'Semantic Availability Rate (SAR %) by Attack Technique\n{cfg["strategy_label"]}',
         fontsize=28, fontweight='bold', y=0.98)
     plt.subplots_adjust(left=0.20, top=0.83, wspace=0.12, right=0.92, bottom=0.22)
     save(fig, out_dir, 'heatmap_passrate.png')
@@ -265,7 +265,7 @@ def plot_heatmap_avgscore(cfg, out_dir):
             axes[i].set_ylabel('')
 
     fig.suptitle(
-        f'Quality Heatmap: Average Score by Attack Technique\n{cfg["strategy_label"]}',
+        f'Average Score by Attack Technique\n{cfg["strategy_label"]}',
         fontsize=28, fontweight='bold', y=0.98)
     plt.subplots_adjust(left=0.20, top=0.83, wspace=0.12, right=0.92, bottom=0.22)
     save(fig, out_dir, 'heatmap_avgscore.png')
