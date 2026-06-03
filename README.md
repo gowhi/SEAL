@@ -26,6 +26,8 @@ This work is a result of the project VIGILANT (Ref PID2024-161902OB-I00), funded
 
 ## Repository Structure
 
+
+```
 AIBench/
 ├── README.md
 ├── requirements.txt                   # Python dependencies
@@ -58,6 +60,7 @@ AIBench/
 └── results/
     └── combined/
         └── graphs/                    # Final combined figures for all strategies
+```
 
 --- 
 
