@@ -28,7 +28,7 @@ This work is a result of the project VIGILANT (Ref PID2024-161902OB-I00), funded
 
 
 ```
-AIBench/
+SEAL/
 ├── README.md
 ├── requirements.txt                   # Python dependencies
 ├── graphs_general.py                  # Combined figure generation for all strategies
