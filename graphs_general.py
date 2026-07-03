@@ -597,6 +597,85 @@ def plot_radar(grp_key):
     plt.tight_layout(pad=4.0)
     save(fig, f'radar_{grp_key}.png')
 
+# --- CI
+
+# ─────────────────────────────────────────────
+# 2b. HARDENING TREND — CI VARIANTS
+# ─────────────────────────────────────────────
+
+def _hardening_trend_ci_core(strat_key, scfg, variant):
+    import numpy as np
+    fig, axes = plt.subplots(1, 2, figsize=(16, 5), sharey=True)
+    groups = [('locals', 'Open-Source Models'), ('commercial', 'Commercial Models')]
+
+    for ax, (grp, grp_label) in zip(axes, groups):
+        gcfg = scfg[grp]
+        df = load_csv(gcfg['csv_dir'], gcfg['prefix'], 'summary_table')
+        df = apply_model_map(df, gcfg['model_map'])
+        ci = load_csv(gcfg['csv_dir'], gcfg['prefix'], 'ci_table')
+        ci = apply_model_map(ci, gcfg['model_map'])
+        df = df.merge(ci[['model', 'prompt_label', 'ci_lower_95', 'ci_upper_95']],
+                      on=['model', 'prompt_label'], how='left')
+        df['prompt_label'] = pd.Categorical(df['prompt_label'],
+                                            categories=HARDENING_ORDER, ordered=True)
+        df = df.sort_values('prompt_label')
+        df['level'] = df['prompt_label'].map(HARDENING_LABELS)
+        level_nums = {lbl: i for i, lbl in
+                      enumerate([HARDENING_LABELS[h] for h in HARDENING_ORDER])}
+        sns.set_style('whitegrid')
+        colors = sns.color_palette('tab10', n_colors=df['model'].nunique())
+        model_colors = {m: c for m, c in zip(sorted(df['model'].unique()), colors)}
+
+        for model, mdf in df.groupby('model'):
+            mdf = mdf.sort_values('prompt_label')
+            x = np.array([level_nums[mdf['level'].iloc[i]] for i in range(len(mdf))])
+            y = mdf['pass_rate'].values
+            ci_lo = mdf['ci_lower_95'].values
+            ci_hi = mdf['ci_upper_95'].values
+            color = model_colors[model]
+
+            if variant in ('band', 'combined'):
+                ax.fill_between(x, ci_lo, ci_hi,
+                                alpha=0.15, color=color, zorder=1)
+            if variant in ('bars', 'combined'):
+                ax.errorbar(x, y, yerr=[y - ci_lo, ci_hi - y],
+                            fmt='none', color=color,
+                            capsize=5, capthick=1.5, elinewidth=1.5, zorder=2)
+            ax.plot(x, y, 'o-', color=color, label=model,
+                    linewidth=2.5, markersize=8, zorder=3)
+
+        ax.set_xticks([0, 1, 2])
+        ax.set_xticklabels([HARDENING_LABELS[h] for h in HARDENING_ORDER], fontsize=11)
+        ax.set_title(grp_label, fontsize=13, fontweight='bold')
+        ax.set_xlabel('Hardening Level', fontsize=11)
+        ax.set_ylabel('Pass Rate (%)' if grp == 'locals' else '', fontsize=11)
+        ax.set_ylim(0, 105)
+        ax.tick_params(labelsize=11)
+        ax.legend(title='Model', fontsize=10, title_fontsize=10,
+                  bbox_to_anchor=(1.02, 1), loc='upper left')
+
+    variant_labels = {
+        'bars': 'Error Bars',
+        'band': 'Shaded Band',
+        'combined': 'Combined',
+    }
+    #fig.suptitle(f'Pass Rate by Hardening Level (95% Wilson CI) — {variant_labels[variant]}\n{scfg["label"]}',
+    #             fontsize=14, fontweight='bold')
+    fig.suptitle(f'Pass Rate by Hardening Level (95% Wilson CI)\n{scfg["label"]}',
+                 fontsize=14, fontweight='bold')
+    plt.tight_layout()
+    save(fig, f'{strat_key}_hardening_trend_ci_{variant}.png')
+
+
+def plot_hardening_trend_ci_bars(strat_key, scfg):
+    _hardening_trend_ci_core(strat_key, scfg, 'bars')
+
+def plot_hardening_trend_ci_band(strat_key, scfg):
+    _hardening_trend_ci_core(strat_key, scfg, 'band')
+
+def plot_hardening_trend_ci_combined(strat_key, scfg):
+    _hardening_trend_ci_core(strat_key, scfg, 'combined')
+
 
 # ─────────────────────────────────────────────
 # MAIN
@@ -628,6 +707,11 @@ def main(strat_key):
 
     plot_severity_distribution(strat_key, scfg)
     plot_hardening_trend(strat_key, scfg)
+    # --- ci
+    plot_hardening_trend_ci_bars(strat_key, scfg)
+    plot_hardening_trend_ci_band(strat_key, scfg)
+    plot_hardening_trend_ci_combined(strat_key, scfg)
+    # --- ci
     plot_heatmap_passrate(strat_key, scfg)
     plot_heatmap_avgscore(strat_key, scfg)
     plot_latency_scatter(strat_key, scfg)

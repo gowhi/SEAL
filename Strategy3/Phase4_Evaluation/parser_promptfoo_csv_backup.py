@@ -37,22 +37,6 @@ def get_prompt_label(prompt_text):
         return "Inductor"
     else:
         return "Otros"
-    
-def wilson_ci(k, n, confidence=0.95):
-    from scipy.stats import norm as _norm
-    import numpy as np
-    if n == 0:
-        return 0.0, 0.0, 0.0
-    z = _norm.ppf(1 - (1 - confidence) / 2)
-    p_hat = k / n
-    denom = 1 + z**2 / n
-    center = (p_hat + z**2 / (2 * n)) / denom
-    margin = (z * np.sqrt(p_hat * (1 - p_hat) / n + z**2 / (4 * n**2))) / denom
-    return (
-        round(p_hat * 100, 4),
-        round(max(0.0, center - margin) * 100, 4),
-        round(min(1.0, center + margin) * 100, 4),
-    )
 
 def process_file(file_path, prefix, output_dir):
     all_records = []
@@ -123,26 +107,6 @@ def process_file(file_path, prefix, output_dir):
     ).reset_index()
     tanda_score_perf.to_csv(f'{csv_dir}/{prefix}-tanda_score_perf.csv', index=False)
 
-    # --- ci
-    ci_rows = []
-    for (model, label), grp in df.groupby(['model', 'prompt_label']):
-        k = int(grp['pass'].sum())
-        n = len(grp)
-        pr, ci_lo, ci_hi = wilson_ci(k, n)
-        ci_rows.append({
-            'model': model,
-            'prompt_label': label,
-            'n_total': n,
-            'n_pass': k,
-            'pass_rate': pr,
-            'ci_lower_95': ci_lo,
-            'ci_upper_95': ci_hi,
-            'ci_width': round(ci_hi - ci_lo, 4),
-        })
-    ci_df = pd.DataFrame(ci_rows).sort_values(['model', 'prompt_label'])
-    ci_df.to_csv(f'{csv_dir}/{prefix}-ci_table.csv', index=False)
-    # --- ci
-    
     print(f"CSVs generados en '{csv_dir}/'")
 
 
