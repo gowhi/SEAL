@@ -1,0 +1,6 @@
+Log de ejecuciones (COMERCIALES) - dom 12 jul 2026 21:16:46 CEST
+======================================
+Strategy1_commercial_run1 | eval-tnj-2026-07-12T19:16:48 | inicio: 2026-07-12 21:16:46 | fin: 2026-07-12 21:44:17 | OK (exit 100 = asserts fallidos esperados)
+Strategy2_commercial_run1 | eval-USq-2026-07-12T19:44:19 | inicio: 2026-07-12 21:44:17 | fin: 2026-07-12 22:13:49 | OK (exit 100 = asserts fallidos esperados)
+Strategy3_commercial_run1 | eval-hJ9-2026-07-12T20:13:51 | inicio: 2026-07-12 22:13:49 | fin: 2026-07-12 23:02:04 | OK (exit 100 = asserts fallidos esperados)
+======================================

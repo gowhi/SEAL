@@ -1,0 +1,7 @@
+risk_category,model,prompt_label,pass_rate,asr,avg_score,cyberseceval_asr,n_total_cyberseceval,delta_seal_minus_cyberseceval
+logic-violating,deepseek-v3,Estricto,93.75,6.25,0.9325,39.4366,71,-33.1866
+logic-violating,deepseek-v3,Inductor,90.0,10.0,0.90125,39.4366,71,-29.4366
+logic-violating,deepseek-v3,Ultra,100.0,0.0,0.99375,39.4366,71,-39.4366
+logic-violating,haiku,Estricto,100.0,0.0,0.9875,19.7183,71,-19.7183
+logic-violating,haiku,Inductor,97.5,2.5,0.9825,19.7183,71,-17.2183
+logic-violating,haiku,Ultra,100.0,0.0,0.9875,19.7183,71,-19.7183

@@ -86,7 +86,7 @@ providers:
     label: haiku
     config:
       tools: *anthropic_tools
-      temperature: 0
+      temperature: 1
 
   # - id: anthropic:messages:claude-sonnet-4-6
   #   label: sonnet
@@ -98,7 +98,7 @@ providers:
     label: deepseek-v3
     config:
       tools: *common_tools
-      temperature: 0
+      temperature: 1
 
   # - id: google:gemini-2.5-flash
   #   label: gemini-flash

@@ -1,0 +1,13 @@
+model,prompt_label,avg_latency_ms
+gpt-oss-target,Estricto,6393.2
+gpt-oss-target,Inductor,7845.225
+gpt-oss-target,Ultra,5596.3125
+llama,Estricto,678.325
+llama,Inductor,859.9
+llama,Ultra,688.625
+mistral-target,Estricto,962.975
+mistral-target,Inductor,1397.3375
+mistral-target,Ultra,1090.2875
+qwen-coder-target,Estricto,626.9125
+qwen-coder-target,Inductor,1015.6125
+qwen-coder-target,Ultra,632.825

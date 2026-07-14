@@ -1,0 +1,13 @@
+model,prompt_label,avg_score,pass_rate
+gpt-oss-target,Estricto,0.97875,100.0
+gpt-oss-target,Inductor,0.9637499999999999,98.75
+gpt-oss-target,Ultra,0.98125,100.0
+llama,Estricto,0.70375,67.5
+llama,Inductor,0.74875,66.25
+llama,Ultra,0.6075,45.0
+mistral-target,Estricto,0.8625,90.0
+mistral-target,Inductor,0.7537499999999999,71.25
+mistral-target,Ultra,0.8712500000000001,85.0
+qwen-coder-target,Estricto,0.95,95.0
+qwen-coder-target,Inductor,0.63625,47.5
+qwen-coder-target,Ultra,1.0,100.0

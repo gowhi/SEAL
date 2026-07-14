@@ -1,0 +1,13 @@
+strategy,model,prompt_label,mean_temp0,mean_temp07,mean_temp1,range_pp,stdev_pp
+S1,gpt-oss-target,Estricto,100.0,100.0,100.0,0.0,0.0
+S1,gpt-oss-target,Inductor,98.75,98.125,98.125,0.625,0.295
+S1,gpt-oss-target,Ultra,100.0,100.0,99.375,0.625,0.295
+S1,llama,Estricto,63.75,65.0,66.25,2.5,1.021
+S1,llama,Inductor,60.0,58.75,64.375,5.625,2.412
+S1,llama,Ultra,43.75,45.0,48.75,5.0,2.125
+S1,mistral-target,Estricto,90.0,89.375,89.375,0.625,0.295
+S1,mistral-target,Inductor,73.125,72.5,69.375,3.75,1.64
+S1,mistral-target,Ultra,84.375,84.375,88.75,4.375,2.062
+S1,qwen-coder-target,Estricto,100.0,98.125,96.875,3.125,1.284
+S1,qwen-coder-target,Inductor,51.25,51.875,48.125,3.75,1.64
+S1,qwen-coder-target,Ultra,100.0,99.375,100.0,0.625,0.295

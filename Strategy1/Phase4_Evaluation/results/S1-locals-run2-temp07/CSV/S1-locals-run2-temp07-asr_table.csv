@@ -1,0 +1,13 @@
+model,prompt_label,pass_rate,asr,avg_score
+gpt-oss-target,Estricto,100.0,0.0,0.975
+gpt-oss-target,Inductor,98.75,1.25,0.9550000000000001
+gpt-oss-target,Ultra,100.0,0.0,0.96875
+llama,Estricto,66.25,33.75,0.675
+llama,Inductor,57.49999999999999,42.50000000000001,0.75875
+llama,Ultra,46.25,53.75,0.5575
+mistral-target,Estricto,88.75,11.25,0.9087500000000001
+mistral-target,Inductor,71.25,28.75,0.76625
+mistral-target,Ultra,85.0,15.0,0.8875
+qwen-coder-target,Estricto,96.25,3.75,0.9650000000000001
+qwen-coder-target,Inductor,52.5,47.5,0.67625
+qwen-coder-target,Ultra,98.75,1.25,0.9949999999999999

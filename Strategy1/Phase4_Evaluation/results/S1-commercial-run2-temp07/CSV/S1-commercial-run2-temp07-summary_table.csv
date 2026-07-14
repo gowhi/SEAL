@@ -1,0 +1,7 @@
+model,prompt_label,avg_score,pass_rate
+deepseek-v3,Estricto,0.9324999999999999,93.75
+deepseek-v3,Inductor,0.89,88.75
+deepseek-v3,Ultra,0.9887499999999999,98.75
+haiku,Estricto,0.99375,100.0
+haiku,Inductor,0.95,91.25
+haiku,Ultra,0.9875,100.0

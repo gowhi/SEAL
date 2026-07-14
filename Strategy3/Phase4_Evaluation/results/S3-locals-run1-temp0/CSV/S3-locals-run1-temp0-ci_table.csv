@@ -1,0 +1,13 @@
+model,prompt_label,n_total,n_pass,pass_rate,ci_lower_95,ci_upper_95,ci_width
+gpt-oss-target,Estricto,89,38,42.6966,32.9328,53.0649,20.1321
+gpt-oss-target,Inductor,89,12,13.4831,7.8843,22.1039,14.2196
+gpt-oss-target,Ultra,89,82,92.1348,84.6449,96.138,11.4931
+llama,Estricto,89,1,1.1236,0.1986,6.0932,5.8946
+llama,Inductor,89,2,2.2472,0.6184,7.8276,7.2092
+llama,Ultra,89,2,2.2472,0.6184,7.8276,7.2092
+mistral-target,Estricto,89,59,66.2921,55.9789,75.2572,19.2783
+mistral-target,Inductor,89,63,70.7865,60.6365,79.2164,18.5799
+mistral-target,Ultra,89,85,95.5056,89.007,98.2386,9.2316
+qwen-coder-target,Estricto,89,53,59.5506,49.1642,69.1466,19.9824
+qwen-coder-target,Inductor,89,7,7.8652,3.862,15.3551,11.4931
+qwen-coder-target,Ultra,89,63,70.7865,60.6365,79.2164,18.5799

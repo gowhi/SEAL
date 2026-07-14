@@ -1,0 +1,13 @@
+model,prompt_label,avg_latency_ms
+gpt-oss-target,Estricto,9458.157303370786
+gpt-oss-target,Inductor,10440.078651685393
+gpt-oss-target,Ultra,8399.988764044943
+llama,Estricto,804.8988764044943
+llama,Inductor,863.5842696629213
+llama,Ultra,896.943820224719
+mistral-target,Estricto,4101.573033707865
+mistral-target,Inductor,1607.5056179775281
+mistral-target,Ultra,2076.7078651685392
+qwen-coder-target,Estricto,969.8988764044943
+qwen-coder-target,Inductor,1016.4606741573034
+qwen-coder-target,Ultra,1417.7303370786517

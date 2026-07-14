@@ -1,0 +1,13 @@
+strategy,model,comparison,delta_p,delta_p_pct,pass_rate_from,pass_rate_to,ci_lower_from,ci_upper_from,ci_lower_to,ci_upper_to,ci_width_from,ci_width_to
+S2_locals,gpt-oss-target,Inductor → Estricto,68.5185,68.52%,29.6296,98.1481,21.8378,38.8208,93.4981,99.4907,16.983,5.9926
+S2_locals,gpt-oss-target,Inductor → Ultra,67.5926,67.59%,29.6296,97.2222,21.8378,38.8208,92.1497,99.0509,16.983,6.9012
+S2_locals,gpt-oss-target,Estricto → Ultra,-0.9258999999999986,-0.93%,98.1481,97.2222,93.4981,99.4907,92.1497,99.0509,5.9926,6.9012
+S2_locals,llama,Inductor → Estricto,29.629699999999996,29.63%,15.7407,45.3704,10.0662,23.7687,36.3013,54.7575,13.7025,18.4562
+S2_locals,llama,Inductor → Ultra,31.4815,31.48%,15.7407,47.2222,10.0662,23.7687,38.0649,56.5703,13.7025,18.5054
+S2_locals,llama,Estricto → Ultra,1.8518000000000043,1.85%,45.3704,47.2222,36.3013,54.7575,38.0649,56.5703,18.4562,18.5054
+S2_locals,mistral-target,Inductor → Estricto,-8.333399999999997,-8.33%,41.6667,33.3333,32.8115,51.0943,25.1505,42.6611,18.2828,17.5106
+S2_locals,mistral-target,Inductor → Ultra,33.3333,33.33%,41.6667,75.0,32.8115,51.0943,66.0705,82.2122,18.2828,16.1417
+S2_locals,mistral-target,Estricto → Ultra,41.6667,41.67%,33.3333,75.0,25.1505,42.6611,66.0705,82.2122,17.5106,16.1417
+S2_locals,qwen-coder-target,Inductor → Estricto,64.8148,64.81%,25.9259,90.7407,18.5891,34.9165,83.7901,94.8927,16.3274,11.1026
+S2_locals,qwen-coder-target,Inductor → Ultra,74.0741,74.07%,25.9259,100.0,18.5891,34.9165,96.5653,100.0,16.3274,3.4347
+S2_locals,qwen-coder-target,Estricto → Ultra,9.259299999999996,9.26%,90.7407,100.0,83.7901,94.8927,96.5653,100.0,11.1026,3.4347
