@@ -1,0 +1,7 @@
+#!/bin/bash
+python scorer_results_parser.py Strategy1/Phase4_Evaluation/eval-S1-locals-run1-temp0.json S1_locals_run1_temp0 scores_S1_locals_run1_temp0.json
+python scorer_results_parser.py Strategy1/Phase4_Evaluation/eval-S1-commercial-run1-temp0.json S1_commercial_run1_temp0 scores_S1_commercial_run1_temp0.json
+python scorer_results_parser.py Strategy2/Phase4_Evaluation/eval-S2-locals-run1-temp0.json S2_locals_run1_temp0 scores_S2_locals_run1_temp0.json
+python scorer_results_parser.py Strategy2/Phase4_Evaluation/eval-S2-commercial-run1-temp0.json S2_commercial_run1_temp0 scores_S2_commercial_run1_temp0.json
+python scorer_results_parser.py Strategy3/Phase4_Evaluation/eval-S3-locals-run1-temp0.json S3_locals_run1_temp0 scores_S3_locals_run1_temp0.json
+python scorer_results_parser.py Strategy3/Phase4_Evaluation/eval-S3-commercial-run1-temp0.json S3_commercial_run1_temp0 scores_S3_commercial_run1_temp0.json

@@ -1,0 +1,7 @@
+model,prompt_label,n_total,n_pass,pass_rate,ci_lower_95,ci_upper_95,ci_width
+deepseek-v3,Estricto,89,70,78.6517,69.0472,85.8852,16.838
+deepseek-v3,Inductor,89,65,73.0337,63.0034,81.1579,18.1545
+deepseek-v3,Ultra,89,88,98.8764,93.9068,99.8014,5.8946
+haiku,Estricto,89,86,96.6292,90.5526,98.8471,8.2945
+haiku,Inductor,89,82,92.1348,84.6449,96.138,11.4931
+haiku,Ultra,89,85,95.5056,89.007,98.2386,9.2316

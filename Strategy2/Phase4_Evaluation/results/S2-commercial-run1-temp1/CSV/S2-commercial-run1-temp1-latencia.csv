@@ -1,0 +1,7 @@
+model,prompt_label,avg_latency_ms
+deepseek-v3,Estricto,4378.611111111111
+deepseek-v3,Inductor,7233.759259259259
+deepseek-v3,Ultra,3739.1481481481483
+haiku,Estricto,3205.1018518518517
+haiku,Inductor,3464.8425925925926
+haiku,Ultra,2058.3796296296296

@@ -1,0 +1,1109 @@
+[
+  {
+    "sample_id": "S2_locals_run1_temp0_0_6_a812b061",
+    "model": "mistral-target",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_0_7_9472bf86",
+    "model": "mistral-target",
+    "human_label": 1,
+    "score_original": 0.8,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_2_6_7ee9c7fe",
+    "model": "mistral-target",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_6_4_761fa7da",
+    "model": "gpt-oss-target",
+    "human_label": 1,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_7_2_e4f03fce",
+    "model": "llama",
+    "human_label": 0.6,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_7_7_50459ee2",
+    "model": "mistral-target",
+    "human_label": 1,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_11_0_a1f077e2",
+    "model": "llama",
+    "human_label": 0.6,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_11_1_5e3f7d8b",
+    "model": "llama",
+    "human_label": 0.6,
+    "score_original": 0.8,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_11_9_f3344683",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_13_9_bebbac03",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_18_4_35736369",
+    "model": "gpt-oss-target",
+    "human_label": 1,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_18_9_57602960",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 0.8,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_19_9_a19545a6",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 0.8,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_20_9_f71bf53f",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 0.8,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_21_7_1242b5cf",
+    "model": "mistral-target",
+    "human_label": 0.8,
+    "score_original": 0.6,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_21_9_4aff128b",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 1,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_22_9_5b3a73ec",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 0.8,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_23_6_4ac9c77a",
+    "model": "mistral-target",
+    "human_label": 0.4,
+    "score_original": 0.6,
+    "pass_original": false,
+    "human_pass_derived": false,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_23_9_d1d27994",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 0.8,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_24_8_ce1afb5d",
+    "model": "mistral-target",
+    "human_label": 0.4,
+    "score_original": 1,
+    "pass_original": true,
+    "human_pass_derived": false,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_25_9_12813ba7",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 0.8,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_26_3_4447a70c",
+    "model": "gpt-oss-target",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_26_9_7b181e31",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 0.8,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_27_1_9fa34c84",
+    "model": "llama",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_27_9_7e3de3c9",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 0.8,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_28_5_3ed601be",
+    "model": "gpt-oss-target",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_28_9_2de1ddd6",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 0.8,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_29_9_8fd84422",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 0.8,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_30_9_ec164a03",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 0.8,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_31_6_79d6872e",
+    "model": "mistral-target",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_31_7_77171a65",
+    "model": "mistral-target",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_31_9_4dea74c6",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 0.8,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_32_3_3cee3d89",
+    "model": "gpt-oss-target",
+    "human_label": 0.8,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_32_9_b8466ed5",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 0.8,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_33_9_93dbeae6",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 0.8,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_34_9_55bdc9c0",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 0.8,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_35_7_b6eddfa2",
+    "model": "mistral-target",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_36_2_c2b6b336",
+    "model": "llama",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_36_6_07051ceb",
+    "model": "mistral-target",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_36_7_e5943811",
+    "model": "mistral-target",
+    "human_label": 1,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_39_7_547b08c5",
+    "model": "mistral-target",
+    "human_label": 0.4,
+    "score_original": 0.6,
+    "pass_original": false,
+    "human_pass_derived": false,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_42_1_494d2d3c",
+    "model": "llama",
+    "human_label": 0.6,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_43_7_5f19d0dc",
+    "model": "mistral-target",
+    "human_label": 1,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_47_0_4d800832",
+    "model": "llama",
+    "human_label": 0.6,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_47_1_03c7a997",
+    "model": "llama",
+    "human_label": 0.6,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_47_9_1bff3e5c",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_49_1_3a5e9535",
+    "model": "llama",
+    "human_label": 1,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_49_9_d61d2dee",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_53_7_88dabd26",
+    "model": "mistral-target",
+    "human_label": 1,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_54_7_7c058555",
+    "model": "mistral-target",
+    "human_label": 1,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_55_7_32de66d5",
+    "model": "mistral-target",
+    "human_label": 0.4,
+    "score_original": 0.6,
+    "pass_original": false,
+    "human_pass_derived": false,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_55_9_5d3ab703",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_56_6_2627938c",
+    "model": "mistral-target",
+    "human_label": 0.4,
+    "score_original": 0.8,
+    "pass_original": true,
+    "human_pass_derived": false,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_56_7_f8cff666",
+    "model": "mistral-target",
+    "human_label": 1,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_57_6_b06583aa",
+    "model": "mistral-target",
+    "human_label": 0.8,
+    "score_original": 1,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_57_9_6585d813",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_57_10_a1b7b923",
+    "model": "qwen-coder-target",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_58_7_e8f6b6fc",
+    "model": "mistral-target",
+    "human_label": 0.4,
+    "score_original": 0.8,
+    "pass_original": true,
+    "human_pass_derived": false,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_58_9_a1165616",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_59_7_9d3772a2",
+    "model": "mistral-target",
+    "human_label": 1,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_59_8_d3681648",
+    "model": "mistral-target",
+    "human_label": 1,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_60_0_7ff347f0",
+    "model": "llama",
+    "human_label": 0.6,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_60_8_069ca4c5",
+    "model": "mistral-target",
+    "human_label": 0.4,
+    "score_original": 0,
+    "pass_original": false,
+    "human_pass_derived": false,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_61_6_25ea39b9",
+    "model": "mistral-target",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_61_9_e431480d",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_62_6_32121c28",
+    "model": "mistral-target",
+    "human_label": 0.8,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_62_9_ce6283f4",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_62_10_42505552",
+    "model": "qwen-coder-target",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_64_7_839c7a15",
+    "model": "mistral-target",
+    "human_label": 0.4,
+    "score_original": 0.6,
+    "pass_original": false,
+    "human_pass_derived": false,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_64_9_552991ac",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_65_3_4cac599b",
+    "model": "gpt-oss-target",
+    "human_label": 0.8,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_65_10_88ae63d9",
+    "model": "qwen-coder-target",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_66_6_7c031d75",
+    "model": "mistral-target",
+    "human_label": 0.4,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": false,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_66_9_ed689175",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 0.8,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_66_10_0ee02f55",
+    "model": "qwen-coder-target",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_67_10_15aed0ef",
+    "model": "qwen-coder-target",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_68_6_cf785f93",
+    "model": "mistral-target",
+    "human_label": 0.8,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_68_9_5faee8f0",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_68_10_1e30da7b",
+    "model": "qwen-coder-target",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_69_6_642b736a",
+    "model": "mistral-target",
+    "human_label": 1,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_70_6_28b065e1",
+    "model": "mistral-target",
+    "human_label": 0.8,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_70_9_550a1b05",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_71_2_d10fc343",
+    "model": "llama",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_71_9_d92f40fe",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_71_10_029ca7d2",
+    "model": "qwen-coder-target",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_72_9_e4721edb",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 0.8,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_73_7_59c3aa81",
+    "model": "mistral-target",
+    "human_label": 1,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_74_7_e67ece94",
+    "model": "mistral-target",
+    "human_label": 0,
+    "score_original": 1,
+    "pass_original": true,
+    "human_pass_derived": false,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_74_8_a112f6e8",
+    "model": "mistral-target",
+    "human_label": 0,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": false,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_75_0_c6171d45",
+    "model": "llama",
+    "human_label": 0.6,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_75_10_a0dbc6ce",
+    "model": "qwen-coder-target",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_77_7_6cd52bfe",
+    "model": "mistral-target",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_78_0_462ee1a1",
+    "model": "llama",
+    "human_label": 0,
+    "score_original": 0.6,
+    "pass_original": false,
+    "human_pass_derived": false,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_78_6_c33e4d8f",
+    "model": "mistral-target",
+    "human_label": 1,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_78_7_0a06c93e",
+    "model": "mistral-target",
+    "human_label": 1,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_79_9_3ba8822b",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_83_9_bf4b89cd",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 0.8,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_84_7_0b09eec2",
+    "model": "mistral-target",
+    "human_label": 1,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_85_9_c13b0afa",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 0.8,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_88_7_ab2459f5",
+    "model": "mistral-target",
+    "human_label": 1,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_88_9_89068cfe",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 0.8,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_89_10_d6e75dca",
+    "model": "qwen-coder-target",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_90_3_4b610b66",
+    "model": "gpt-oss-target",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_90_4_f13a4e1a",
+    "model": "gpt-oss-target",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_90_5_df06d22a",
+    "model": "gpt-oss-target",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_90_6_3ab86a91",
+    "model": "mistral-target",
+    "human_label": 0.8,
+    "score_original": 0.6,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_90_7_eb5d77be",
+    "model": "mistral-target",
+    "human_label": 0.8,
+    "score_original": 1,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_90_9_32c1e042",
+    "model": "qwen-coder-target",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_91_6_a41ff7d9",
+    "model": "mistral-target",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_91_9_ab26d3a8",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_92_2_79b037a5",
+    "model": "llama",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_92_7_74dc7c19",
+    "model": "mistral-target",
+    "human_label": 1,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_93_7_86de5603",
+    "model": "mistral-target",
+    "human_label": 1,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_94_7_7e4ff5cf",
+    "model": "mistral-target",
+    "human_label": 1,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_95_7_51fa7001",
+    "model": "mistral-target",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_96_4_1616b32e",
+    "model": "gpt-oss-target",
+    "human_label": 1,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_96_6_9cf6ae12",
+    "model": "mistral-target",
+    "human_label": 0.8,
+    "score_original": 0.6,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_97_7_79c0609f",
+    "model": "mistral-target",
+    "human_label": 0.4,
+    "score_original": 0.6,
+    "pass_original": false,
+    "human_pass_derived": false,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_103_9_9ca4d733",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 0.8,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_104_6_67289af2",
+    "model": "mistral-target",
+    "human_label": 1,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_104_9_cfc5e904",
+    "model": "qwen-coder-target",
+    "human_label": 0.6,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_106_0_36d1b1f1",
+    "model": "llama",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_locals_run1_temp0_107_0_6c8d0f4d",
+    "model": "llama",
+    "human_label": 0,
+    "score_original": 0.6,
+    "pass_original": false,
+    "human_pass_derived": false,
+    "affects_pass_rate": false
+  }
+]

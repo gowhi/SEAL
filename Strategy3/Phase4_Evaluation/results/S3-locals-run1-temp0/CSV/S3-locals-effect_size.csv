@@ -1,0 +1,13 @@
+strategy,model,comparison,delta_p,delta_p_pct,pass_rate_from,pass_rate_to,ci_lower_from,ci_upper_from,ci_lower_to,ci_upper_to,ci_width_from,ci_width_to
+S3_locals,gpt-oss-target,Inductor → Estricto,29.213499999999996,29.21%,13.4831,42.6966,7.8843,22.1039,32.9328,53.0649,14.2196,20.1321
+S3_locals,gpt-oss-target,Inductor → Ultra,78.6517,78.65%,13.4831,92.1348,7.8843,22.1039,84.6449,96.138,14.2196,11.4931
+S3_locals,gpt-oss-target,Estricto → Ultra,49.4382,49.44%,42.6966,92.1348,32.9328,53.0649,84.6449,96.138,20.1321,11.4931
+S3_locals,llama,Inductor → Estricto,-1.1236,-1.12%,2.2472,1.1236,0.6184,7.8276,0.1986,6.0932,7.2092,5.8946
+S3_locals,llama,Inductor → Ultra,0.0,0.00%,2.2472,2.2472,0.6184,7.8276,0.6184,7.8276,7.2092,7.2092
+S3_locals,llama,Estricto → Ultra,1.1236,1.12%,1.1236,2.2472,0.1986,6.0932,0.6184,7.8276,5.8946,7.2092
+S3_locals,mistral-target,Inductor → Estricto,-4.494399999999999,-4.49%,70.7865,66.2921,60.6365,79.2164,55.9789,75.2572,18.5799,19.2783
+S3_locals,mistral-target,Inductor → Ultra,24.719099999999997,24.72%,70.7865,95.5056,60.6365,79.2164,89.007,98.2386,18.5799,9.2316
+S3_locals,mistral-target,Estricto → Ultra,29.213499999999996,29.21%,66.2921,95.5056,55.9789,75.2572,89.007,98.2386,19.2783,9.2316
+S3_locals,qwen-coder-target,Inductor → Estricto,51.6854,51.69%,7.8652,59.5506,3.862,15.3551,49.1642,69.1466,11.4931,19.9824
+S3_locals,qwen-coder-target,Inductor → Ultra,62.9213,62.92%,7.8652,70.7865,3.862,15.3551,60.6365,79.2164,11.4931,18.5799
+S3_locals,qwen-coder-target,Estricto → Ultra,11.2359,11.24%,59.5506,70.7865,49.1642,69.1466,60.6365,79.2164,19.9824,18.5799

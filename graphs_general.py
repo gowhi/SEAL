@@ -25,12 +25,36 @@ mpl.rcParams.update({'font.family': 'sans-serif'})
 BASE = os.path.expanduser('~/Documentos/AIBench')
 PHASE4 = 'Phase4_Evaluation'
 
+# -----------------------------------------------------------------------------
+# FONT SIZE SCALE
+# -----------------------------------------------------------------------------
+# Centralized font sizes so every plot gets a consistent, larger typeface.
+# Padding values were increased alongside font sizes to avoid overlap between
+# titles, axis labels, tick labels and legends.
+FS = {
+    'suptitle': 20,
+    'title': 18,
+    'axis_label': 16,
+    'tick_label': 14,
+    'legend_text': 14,
+    'legend_title': 15,
+    'annot': 18,          # heatmap cell annotations
+    'cbar_label': 22,
+    'cbar_tick': 20,
+    'row_label': 20,      # heatmap left-side group label (Open-Source / Commercial)
+    'col_title': 24,      # heatmap top hardening-level title
+    'xtick_heatmap': 15,
+    'radar_cat': 13,
+    'radar_title': 15,
+    'radar_legend': 11,
+}
+
 STRATEGIES = {
     'S1': {
         'label': 'S1: Direct Tool Injection (Integrity)',
         'locals': {
-            'prefix': 'S1-locals',
-            'csv_dir': os.path.join(BASE, 'Strategy1', PHASE4, 'results/S1-locals/CSV'),
+            'prefix': 'S1-locals-run1-temp0',
+            'csv_dir': os.path.join(BASE, 'Strategy1', PHASE4, 'results/S1-locals-run1-temp0/CSV'),
             'model_map': {
                 'gpt-oss-target':    'GPT-OSS',
                 'llama':             'LLaMA 3.2',
@@ -39,8 +63,8 @@ STRATEGIES = {
             },
         },
         'commercial': {
-            'prefix': 'S1-commercial',
-            'csv_dir': os.path.join(BASE, 'Strategy1', PHASE4, 'results/S1-commercial/CSV'),
+            'prefix': 'S1-commercial-run1-temp0',
+            'csv_dir': os.path.join(BASE, 'Strategy1', PHASE4, 'results/S1-commercial-run1-temp0/CSV'),
             'model_map': {
                 'haiku':       'Haiku 4.5',
                 'deepseek-v3': 'DeepSeek V3',
@@ -61,8 +85,8 @@ STRATEGIES = {
     'S2': {
         'label': 'S2: System Prompt Exfiltration (Confidentiality)',
         'locals': {
-            'prefix': 'S2-locals',
-            'csv_dir': os.path.join(BASE, 'Strategy2', PHASE4, 'results/S2-locals/CSV'),
+            'prefix': 'S2-locals-run1-temp0',
+            'csv_dir': os.path.join(BASE, 'Strategy2', PHASE4, 'results/S2-locals-run1-temp0/CSV'),
             'model_map': {
                 'gpt-oss-target':    'GPT-OSS',
                 'llama':             'LLaMA 3.2',
@@ -71,8 +95,8 @@ STRATEGIES = {
             },
         },
         'commercial': {
-            'prefix': 'S2-commercial',
-            'csv_dir': os.path.join(BASE, 'Strategy2', PHASE4, 'results/S2-commercial/CSV'),
+            'prefix': 'S2-commercial-run1-temp0',
+            'csv_dir': os.path.join(BASE, 'Strategy2', PHASE4, 'results/S2-commercial-run1-temp0/CSV'),
             'model_map': {
                 'haiku':       'Haiku 4.5',
                 'deepseek-v3': 'DeepSeek V3',
@@ -93,8 +117,8 @@ STRATEGIES = {
     'S3': {
         'label': 'S3: Indirect Tool Injection & SDoS (Availability)',
         'locals': {
-            'prefix': 'S3-locals',
-            'csv_dir': os.path.join(BASE, 'Strategy3', PHASE4, 'results/S3-locals/CSV'),
+            'prefix': 'S3-locals-run1-temp0',
+            'csv_dir': os.path.join(BASE, 'Strategy3', PHASE4, 'results/S3-locals-run1-temp0/CSV'),
             'model_map': {
                 'gpt-oss-target':    'GPT-OSS',
                 'llama':             'LLaMA 3.2',
@@ -103,8 +127,8 @@ STRATEGIES = {
             },
         },
         'commercial': {
-            'prefix': 'S3-commercial',
-            'csv_dir': os.path.join(BASE, 'Strategy3', PHASE4, 'results/S3-commercial/CSV'),
+            'prefix': 'S3-commercial-run1-temp0',
+            'csv_dir': os.path.join(BASE, 'Strategy3', PHASE4, 'results/S3-commercial-run1-temp0/CSV'),
             'model_map': {
                 'haiku':       'Haiku 4.5',
                 'deepseek-v3': 'DeepSeek V3',
@@ -128,15 +152,15 @@ HARDENING_LABELS = {'Inductor': 'Level I', 'Estricto': 'Level S', 'Ultra': 'Leve
 OUT_DIR = os.path.join(BASE, 'results/combined/graphs')
 
 RADAR_STRATEGY_DIRS = {
-    'S1': {'locals': 'S1-locals', 'commercial': 'S1-commercial',
-           'locals_csv': os.path.join(BASE, 'Strategy1', PHASE4, 'results/S1-locals/CSV'),
-           'comm_csv':   os.path.join(BASE, 'Strategy1', PHASE4, 'results/S1-commercial/CSV')},
-    'S2': {'locals': 'S2-locals', 'commercial': 'S2-commercial',
-           'locals_csv': os.path.join(BASE, 'Strategy2', PHASE4, 'results/S2-locals/CSV'),
-           'comm_csv':   os.path.join(BASE, 'Strategy2', PHASE4, 'results/S2-commercial/CSV')},
-    'S3': {'locals': 'S3-locals', 'commercial': 'S3-commercial',
-           'locals_csv': os.path.join(BASE, 'Strategy3', PHASE4, 'results/S3-locals/CSV'),
-           'comm_csv':   os.path.join(BASE, 'Strategy3', PHASE4, 'results/S3-commercial/CSV')},
+    'S1': {'prefix_locals': 'S1-locals-run1-temp0', 'prefix_commercial': 'S1-commercial-run1-temp0',
+           'locals_csv': os.path.join(BASE, 'Strategy1', PHASE4, 'results/S1-locals-run1-temp0/CSV'),
+           'comm_csv':   os.path.join(BASE, 'Strategy1', PHASE4, 'results/S1-commercial-run1-temp0/CSV')},
+    'S2': {'prefix_locals': 'S2-locals-run1-temp0', 'prefix_commercial': 'S2-commercial-run1-temp0',
+           'locals_csv': os.path.join(BASE, 'Strategy2', PHASE4, 'results/S2-locals-run1-temp0/CSV'),
+           'comm_csv':   os.path.join(BASE, 'Strategy2', PHASE4, 'results/S2-commercial-run1-temp0/CSV')},
+    'S3': {'prefix_locals': 'S3-locals-run1-temp0', 'prefix_commercial': 'S3-commercial-run1-temp0',
+           'locals_csv': os.path.join(BASE, 'Strategy3', PHASE4, 'results/S3-locals-run1-temp0/CSV'),
+           'comm_csv':   os.path.join(BASE, 'Strategy3', PHASE4, 'results/S3-commercial-run1-temp0/CSV')},
 }
 
 # ─────────────────────────────────────────────
@@ -169,7 +193,7 @@ def save(fig, filename, dpi=300):
 # ─────────────────────────────────────────────
 
 def plot_severity_distribution(strat_key, scfg):
-    fig, axes = plt.subplots(1, 2, figsize=(18, 6))
+    fig, axes = plt.subplots(1, 2, figsize=(20, 7))
     groups = [('locals', 'Open-Source Models'), ('commercial', 'Commercial Models')]
 
     for ax, (grp, grp_label) in zip(axes, groups):
@@ -187,23 +211,24 @@ def plot_severity_distribution(strat_key, scfg):
         df.plot(kind='bar', stacked=True, color=colors, ax=ax,
                 width=0.65, edgecolor='white', linewidth=0.5, legend=False)
 
-        ax.set_title(grp_label, fontsize=13, fontweight='bold', pad=10)
-        ax.set_ylabel('Evaluations (%)' if grp == 'locals' else '', fontsize=11)
+        ax.set_title(grp_label, fontsize=FS['title'], fontweight='bold', pad=14)
+        ax.set_ylabel('Evaluations (%)' if grp == 'locals' else '', fontsize=FS['axis_label'], labelpad=10)
         ax.set_xlabel('')
         ax.set_ylim(0, 100)
-        ax.tick_params(axis='x', labelsize=11, rotation=0)
-        ax.tick_params(axis='y', labelsize=11)
+        ax.tick_params(axis='x', labelsize=FS['tick_label'], rotation=0)
+        ax.tick_params(axis='y', labelsize=FS['tick_label'])
 
     # Shared legend on the right
     handles = [plt.Rectangle((0,0),1,1, color=scfg['score_dist_colors'].get(c,'#95a5a6'))
                for c in scfg['score_dist_order'] if c in scfg['score_dist_colors']]
     labels = [scfg['score_dist_legend'].get(c, c) for c in scfg['score_dist_order']
               if c in scfg['score_dist_colors']]
-    fig.legend(handles, labels, title='Score / Outcome', fontsize=10, title_fontsize=11,
-               bbox_to_anchor=(1.01, 0.9), loc='upper left', frameon=False)
+    fig.legend(handles, labels, title='Score / Outcome',
+               fontsize=FS['legend_text'], title_fontsize=FS['legend_title'],
+               bbox_to_anchor=(1.02, 0.9), loc='upper left', frameon=False)
 
     fig.suptitle(f'Global Distribution of Scores ($S_j$)\n{scfg["label"]}',
-                 fontsize=14, fontweight='bold', y=1.02)
+                 fontsize=FS['suptitle'], fontweight='bold', y=1.04)
     plt.tight_layout()
     save(fig, f'{strat_key}_severity_distribution.png')
 
@@ -213,7 +238,7 @@ def plot_severity_distribution(strat_key, scfg):
 # ─────────────────────────────────────────────
 
 def plot_hardening_trend(strat_key, scfg):
-    fig, axes = plt.subplots(1, 2, figsize=(16, 5), sharey=True)
+    fig, axes = plt.subplots(1, 2, figsize=(18, 6), sharey=True)
     groups = [('locals', 'Open-Source Models'), ('commercial', 'Commercial Models')]
     ylabel = 'Pass Rate (%)'
 
@@ -231,18 +256,18 @@ def plot_hardening_trend(strat_key, scfg):
 
         sns.set_style('whitegrid')
         sns.lineplot(data=df, x='level', y='pass_rate', hue='model',
-                     marker='o', linewidth=2.5, markersize=8, ax=ax)
+                     marker='o', linewidth=2.5, markersize=9, ax=ax)
 
-        ax.set_title(grp_label, fontsize=13, fontweight='bold')
-        ax.set_xlabel('Hardening Level', fontsize=11)
-        ax.set_ylabel(ylabel if grp == 'locals' else '', fontsize=11)
-        ax.set_ylim(0, 105)
-        ax.tick_params(labelsize=11)
-        ax.legend(title='Model', fontsize=10, title_fontsize=10,
+        ax.set_title(grp_label, fontsize=FS['title'], fontweight='bold', pad=12)
+        ax.set_xlabel('Hardening Level', fontsize=FS['axis_label'], labelpad=10)
+        ax.set_ylabel(ylabel if grp == 'locals' else '', fontsize=FS['axis_label'], labelpad=10)
+        ax.set_ylim(0, 108)
+        ax.tick_params(labelsize=FS['tick_label'])
+        ax.legend(title='Model', fontsize=FS['legend_text'], title_fontsize=FS['legend_title'],
                   bbox_to_anchor=(1.02, 1), loc='upper left')
 
     fig.suptitle(f'Pass Rate by Hardening Level\n{scfg["label"]}',
-                 fontsize=14, fontweight='bold')
+                 fontsize=FS['suptitle'], fontweight='bold', y=1.05)
     plt.tight_layout()
     save(fig, f'{strat_key}_hardening_trend.png')
 
@@ -258,7 +283,7 @@ def plot_heatmap_passrate(strat_key, scfg):
     Row 1: commercial — Level I | Level S | Level U
     Y-axis labels (model names) shown only on leftmost column of each row.
     """
-    fig, axes = plt.subplots(2, 3, figsize=(36, 16))
+    fig, axes = plt.subplots(2, 3, figsize=(38, 18))
     cbar_label = 'Block Rate (%)'
     metric_col = 'success_rate'
 
@@ -276,46 +301,46 @@ def plot_heatmap_passrate(strat_key, scfg):
             is_last_col = (col == 2)
             cbar_ax = None
             if row == 1 and is_last_col:
-                cbar_ax = fig.add_axes([0.94, 0.12, 0.008, 0.76])
+                cbar_ax = fig.add_axes([0.94, 0.12, 0.010, 0.76])
 
             sns.heatmap(pivot, annot=True, fmt='.0f', cmap='RdYlGn',
                         ax=ax, cbar=(row == 1 and is_last_col),
                         cbar_ax=cbar_ax,
                         vmin=0, vmax=100,
-                        annot_kws={'size': 16, 'weight': 'bold'},
+                        annot_kws={'size': FS['annot'], 'weight': 'bold'},
                         linewidths=1.0,
                         yticklabels=(col == 0))  # only show model names on left col
 
             if row == 1 and is_last_col and cbar_ax:
-                cbar_ax.tick_params(labelsize=18)
-                cbar_ax.set_ylabel(cbar_label, fontsize=20, fontweight='bold', labelpad=14)
+                cbar_ax.tick_params(labelsize=FS['cbar_tick'])
+                cbar_ax.set_ylabel(cbar_label, fontsize=FS['cbar_label'], fontweight='bold', labelpad=16)
 
             # Column titles (hardening level) only on top row
             if row == 0:
-                ax.set_title(HARDENING_LABELS[esc], fontsize=22, fontweight='bold', pad=12)
+                ax.set_title(HARDENING_LABELS[esc], fontsize=FS['col_title'], fontweight='bold', pad=14)
             else:
                 ax.set_title('')
 
             # Row label on the left
             if col == 0:
-                ax.set_ylabel(grp_label, fontsize=18, fontweight='bold', labelpad=10)
-                ax.tick_params(axis='y', labelsize=14)
+                ax.set_ylabel(grp_label, fontsize=FS['row_label'], fontweight='bold', labelpad=12)
+                ax.tick_params(axis='y', labelsize=FS['xtick_heatmap'])
             else:
                 ax.set_ylabel('')
                 ax.set_yticks([])
 
             # X-axis labels only on bottom row
             if row == 1:
-                ax.set_xlabel('Attack Technique', fontsize=16, labelpad=10)
+                ax.set_xlabel('Attack Technique', fontsize=FS['axis_label'], labelpad=12)
                 ax.set_xticklabels(ax.get_xticklabels(),
-                                   rotation=35, ha='right', fontsize=13)
+                                   rotation=35, ha='right', fontsize=FS['xtick_heatmap'])
             else:
                 ax.set_xlabel('')
                 ax.set_xticklabels([])
 
     fig.suptitle(f'Pass Rate (%) by Attack Technique\n{scfg["label"]}',
-                 fontsize=24, fontweight='bold', y=1.01)
-    plt.subplots_adjust(left=0.10, right=0.92, top=0.93, bottom=0.12, hspace=0.08, wspace=0.05)
+                 fontsize=FS['suptitle'] + 4, fontweight='bold', y=1.02)
+    plt.subplots_adjust(left=0.10, right=0.92, top=0.92, bottom=0.13, hspace=0.10, wspace=0.06)
     save(fig, f'{strat_key}_heatmap_passrate.png')
 
 
@@ -324,7 +349,7 @@ def plot_heatmap_passrate(strat_key, scfg):
 # ─────────────────────────────────────────────
 
 def plot_heatmap_avgscore(strat_key, scfg):
-    fig, axes = plt.subplots(2, 3, figsize=(36, 16))
+    fig, axes = plt.subplots(2, 3, figsize=(38, 18))
 
     for row, grp in enumerate(['locals', 'commercial']):
         gcfg = scfg[grp]
@@ -339,44 +364,44 @@ def plot_heatmap_avgscore(strat_key, scfg):
 
             cbar_ax = None
             if row == 1 and col == 2:
-                cbar_ax = fig.add_axes([0.94, 0.12, 0.008, 0.76])
+                cbar_ax = fig.add_axes([0.94, 0.12, 0.010, 0.76])
 
             sns.heatmap(pivot, annot=True, fmt='.2f', cmap='YlGnBu',
                         ax=ax, cbar=(row == 1 and col == 2),
                         cbar_ax=cbar_ax,
                         vmin=0, vmax=1,
-                        annot_kws={'size': 16, 'weight': 'bold'},
+                        annot_kws={'size': FS['annot'], 'weight': 'bold'},
                         linewidths=1.0,
                         yticklabels=(col == 0))
 
             if row == 1 and col == 2 and cbar_ax:
-                cbar_ax.tick_params(labelsize=18)
-                cbar_ax.set_ylabel('Average Score (0–1)', fontsize=20,
-                                   fontweight='bold', labelpad=14)
+                cbar_ax.tick_params(labelsize=FS['cbar_tick'])
+                cbar_ax.set_ylabel('Average Score (0–1)', fontsize=FS['cbar_label'],
+                                   fontweight='bold', labelpad=16)
 
             if row == 0:
-                ax.set_title(HARDENING_LABELS[esc], fontsize=22, fontweight='bold', pad=12)
+                ax.set_title(HARDENING_LABELS[esc], fontsize=FS['col_title'], fontweight='bold', pad=14)
             else:
                 ax.set_title('')
 
             if col == 0:
-                ax.set_ylabel(grp_label, fontsize=18, fontweight='bold', labelpad=10)
-                ax.tick_params(axis='y', labelsize=14)
+                ax.set_ylabel(grp_label, fontsize=FS['row_label'], fontweight='bold', labelpad=12)
+                ax.tick_params(axis='y', labelsize=FS['xtick_heatmap'])
             else:
                 ax.set_ylabel('')
                 ax.set_yticks([])
 
             if row == 1:
-                ax.set_xlabel('Attack Technique', fontsize=16, labelpad=10)
+                ax.set_xlabel('Attack Technique', fontsize=FS['axis_label'], labelpad=12)
                 ax.set_xticklabels(ax.get_xticklabels(),
-                                   rotation=35, ha='right', fontsize=13)
+                                   rotation=35, ha='right', fontsize=FS['xtick_heatmap'])
             else:
                 ax.set_xlabel('')
                 ax.set_xticklabels([])
 
     fig.suptitle(f'Average Score by Attack Technique\n{scfg["label"]}',
-                 fontsize=24, fontweight='bold', y=1.01)
-    plt.subplots_adjust(left=0.10, right=0.92, top=0.93, bottom=0.12, hspace=0.08, wspace=0.05)
+                 fontsize=FS['suptitle'] + 4, fontweight='bold', y=1.02)
+    plt.subplots_adjust(left=0.10, right=0.92, top=0.92, bottom=0.13, hspace=0.10, wspace=0.06)
     save(fig, f'{strat_key}_heatmap_avgscore.png')
 
 
@@ -385,7 +410,7 @@ def plot_heatmap_avgscore(strat_key, scfg):
 # ─────────────────────────────────────────────
 
 def plot_latency_scatter(strat_key, scfg):
-    fig, axes = plt.subplots(1, 2, figsize=(22, 7))
+    fig, axes = plt.subplots(1, 2, figsize=(24, 8))
     groups = [('locals', 'Open-Source Models'), ('commercial', 'Commercial Models')]
     ylabel = 'Pass Rate (%)'
     title_y = 'Latency–Pass Rate Trade-off'
@@ -406,24 +431,25 @@ def plot_latency_scatter(strat_key, scfg):
                         hue='model', style='level',
                         hue_order=sorted(df['model'].unique()),
                         style_order=level_order,
-                        s=280, alpha=0.85, edgecolor='black', zorder=3, ax=ax)
+                        s=300, alpha=0.85, edgecolor='black', zorder=3, ax=ax)
 
         ax.set_xscale('log')
-        ax.set_ylim(0, 105)
+        ax.set_ylim(0, 108)
 
         ticks_x = [500, 1000, 2000, 5000, 10000, 25000]
         ax.set_xticks(ticks_x)
-        ax.set_xticklabels([str(t) for t in ticks_x], fontsize=10)
+        ax.set_xticklabels([str(t) for t in ticks_x], fontsize=FS['tick_label'])
         ax.xaxis.set_major_formatter(ticker.ScalarFormatter())
 
         for _, row in df[df['prompt_label'] == 'Estricto'].iterrows():
-            ax.text(row['avg_latency_ms'], row['pass_rate'] + 2,
-                    row['model'], fontsize=8, fontweight='bold', ha='center',
-                    bbox=dict(facecolor='white', alpha=0.7, edgecolor='none', pad=1))
+            ax.text(row['avg_latency_ms'], row['pass_rate'] + 2.5,
+                    row['model'], fontsize=11, fontweight='bold', ha='center',
+                    bbox=dict(facecolor='white', alpha=0.7, edgecolor='none', pad=1.5))
 
-        ax.set_title(grp_label, fontsize=13, fontweight='bold')
-        ax.set_xlabel('Average Latency (ms) — Log Scale', fontsize=11)
-        ax.set_ylabel(ylabel if grp == 'locals' else '', fontsize=11)
+        ax.set_title(grp_label, fontsize=FS['title'], fontweight='bold', pad=12)
+        ax.set_xlabel('Average Latency (ms) — Log Scale', fontsize=FS['axis_label'], labelpad=10)
+        ax.set_ylabel(ylabel if grp == 'locals' else '', fontsize=FS['axis_label'], labelpad=10)
+        ax.tick_params(axis='y', labelsize=FS['tick_label'])
 
         # Build ordered legend: models first, separator, then Level I → S → U
         handles, labels = ax.get_legend_handles_labels()
@@ -440,12 +466,12 @@ def plot_latency_scatter(strat_key, scfg):
         ax.legend(
             model_h + [separator_h] + level_h,
             model_l + [separator_l] + level_l,
-            title='Model / Level', fontsize=9, title_fontsize=10,
+            title='Model / Level', fontsize=FS['legend_text'], title_fontsize=FS['legend_title'],
             bbox_to_anchor=(1.02, 1), loc='upper left',
-            handletextpad=0.5, labelspacing=0.6,
+            handletextpad=0.5, labelspacing=0.7,
         )
 
-    fig.suptitle(f'{title_y}\n{scfg["label"]}', fontsize=14, fontweight='bold')
+    fig.suptitle(f'{title_y}\n{scfg["label"]}', fontsize=FS['suptitle'], fontweight='bold', y=1.04)
     plt.tight_layout()
     save(fig, f'{strat_key}_latency_scatter.png')
 
@@ -494,7 +520,7 @@ def _load_radar_data(grp_key):
     frames = []
     for sk, sdirs in RADAR_STRATEGY_DIRS.items():
         csv_dir = sdirs['locals_csv'] if grp_key == 'locals' else sdirs['comm_csv']
-        prefix  = sdirs['locals']     if grp_key == 'locals' else sdirs['commercial']
+        prefix  = sdirs['prefix_locals'] if grp_key == 'locals' else sdirs['prefix_commercial']
         try:
             df = load_csv(csv_dir, prefix, 'summary_table')
             df['strategy'] = sk
@@ -557,7 +583,7 @@ def plot_radar(grp_key):
     nrows = 2 if n_models > 2 else 1
     ncols = 2
     fig, axes = plt.subplots(nrows, ncols,
-                             figsize=(13, 13 if nrows == 2 else 7),
+                             figsize=(15, 15 if nrows == 2 else 8),
                              subplot_kw=dict(polar=True))
     axes = axes.flatten() if hasattr(axes, 'flatten') else [axes]
 
@@ -572,20 +598,20 @@ def plot_radar(grp_key):
                 continue
             vals += vals[:1]
             sc = strategy_colors[sk]
-            ax.plot(angles, vals, linewidth=2,
+            ax.plot(angles, vals, linewidth=2.2,
                     linestyle=strategy_styles[sk],
                     color=sc, label=RADAR_STRATEGY_LABELS[sk])
             ax.fill(angles, vals, color=sc, alpha=0.10)
 
         ax.set_xticks(angles[:-1])
-        ax.set_xticklabels(RADAR_CATEGORIES, fontsize=11, fontweight='bold')
-        ax.tick_params(axis='x', pad=12)
+        ax.set_xticklabels(RADAR_CATEGORIES, fontsize=FS['radar_cat'], fontweight='bold')
+        ax.tick_params(axis='x', pad=16)
         ax.set_ylim(0, 1.1)
-        ax.tick_params(axis='y', labelsize=10)
-        ax.set_title(display_name, size=13, pad=25,
+        ax.tick_params(axis='y', labelsize=FS['tick_label'] - 2)
+        ax.set_title(display_name, size=FS['radar_title'], pad=30,
                      color=model_color, fontweight='bold')
-        ax.legend(loc='upper right', bbox_to_anchor=(1.35, 1.15),
-                  fontsize=9, frameon=True)
+        ax.legend(loc='upper right', bbox_to_anchor=(1.40, 1.18),
+                  fontsize=FS['radar_legend'], frameon=True)
 
     # Hide unused subplots
     for j in range(n_models, len(axes)):
@@ -593,8 +619,8 @@ def plot_radar(grp_key):
 
     grp_label = 'Open-Source Models' if grp_key == 'locals' else 'Commercial Models'
     fig.suptitle(f'Security Radar — {grp_label}\nPass Rate & Average Score across S1, S2, S3',
-                 fontsize=15, fontweight='bold', y=1.02)
-    plt.tight_layout(pad=4.0)
+                 fontsize=FS['suptitle'] - 2, fontweight='bold', y=1.03)
+    plt.tight_layout(pad=5.0)
     save(fig, f'radar_{grp_key}.png')
 
 # --- CI
@@ -605,7 +631,7 @@ def plot_radar(grp_key):
 
 def _hardening_trend_ci_core(strat_key, scfg, variant):
     import numpy as np
-    fig, axes = plt.subplots(1, 2, figsize=(16, 5), sharey=True)
+    fig, axes = plt.subplots(1, 2, figsize=(18, 6), sharey=True)
     groups = [('locals', 'Open-Source Models'), ('commercial', 'Commercial Models')]
 
     for ax, (grp, grp_label) in zip(axes, groups):
@@ -640,18 +666,18 @@ def _hardening_trend_ci_core(strat_key, scfg, variant):
             if variant in ('bars', 'combined'):
                 ax.errorbar(x, y, yerr=[y - ci_lo, ci_hi - y],
                             fmt='none', color=color,
-                            capsize=5, capthick=1.5, elinewidth=1.5, zorder=2)
+                            capsize=6, capthick=1.8, elinewidth=1.8, zorder=2)
             ax.plot(x, y, 'o-', color=color, label=model,
-                    linewidth=2.5, markersize=8, zorder=3)
+                    linewidth=2.5, markersize=9, zorder=3)
 
         ax.set_xticks([0, 1, 2])
-        ax.set_xticklabels([HARDENING_LABELS[h] for h in HARDENING_ORDER], fontsize=11)
-        ax.set_title(grp_label, fontsize=13, fontweight='bold')
-        ax.set_xlabel('Hardening Level', fontsize=11)
-        ax.set_ylabel('Pass Rate (%)' if grp == 'locals' else '', fontsize=11)
-        ax.set_ylim(0, 105)
-        ax.tick_params(labelsize=11)
-        ax.legend(title='Model', fontsize=10, title_fontsize=10,
+        ax.set_xticklabels([HARDENING_LABELS[h] for h in HARDENING_ORDER], fontsize=FS['tick_label'])
+        ax.set_title(grp_label, fontsize=FS['title'], fontweight='bold', pad=12)
+        ax.set_xlabel('Hardening Level', fontsize=FS['axis_label'], labelpad=10)
+        ax.set_ylabel('Pass Rate (%)' if grp == 'locals' else '', fontsize=FS['axis_label'], labelpad=10)
+        ax.set_ylim(0, 108)
+        ax.tick_params(axis='y', labelsize=FS['tick_label'])
+        ax.legend(title='Model', fontsize=FS['legend_text'], title_fontsize=FS['legend_title'],
                   bbox_to_anchor=(1.02, 1), loc='upper left')
 
     variant_labels = {
@@ -659,10 +685,8 @@ def _hardening_trend_ci_core(strat_key, scfg, variant):
         'band': 'Shaded Band',
         'combined': 'Combined',
     }
-    #fig.suptitle(f'Pass Rate by Hardening Level (95% Wilson CI) — {variant_labels[variant]}\n{scfg["label"]}',
-    #             fontsize=14, fontweight='bold')
     fig.suptitle(f'Pass Rate by Hardening Level (95% Wilson CI)\n{scfg["label"]}',
-                 fontsize=14, fontweight='bold')
+                 fontsize=FS['suptitle'], fontweight='bold', y=1.05)
     plt.tight_layout()
     save(fig, f'{strat_key}_hardening_trend_ci_{variant}.png')
 

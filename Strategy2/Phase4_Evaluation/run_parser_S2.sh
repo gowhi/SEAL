@@ -21,6 +21,8 @@ declare -A FILES=(
     ["eval-S2-commercial-run2-temp0.json"]="S2-commercial-run2-temp0"
     ["eval-S2-commercial-run1-temp07.json"]="S2-commercial-run1-temp07"
     ["eval-S2-commercial-run2-temp07.json"]="S2-commercial-run2-temp07"
+    ["eval-S2-commercial-run1-temp1.json"]="S2-commercial-run1-temp1"
+    ["eval-S2-commercial-run2-temp1.json"]="S2-commercial-run2-temp1"
 )
 
 for FILE in "${!FILES[@]}"; do

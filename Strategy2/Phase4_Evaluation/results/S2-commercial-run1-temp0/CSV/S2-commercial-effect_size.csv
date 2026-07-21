@@ -1,0 +1,7 @@
+strategy,model,comparison,delta_p,delta_p_pct,pass_rate_from,pass_rate_to,ci_lower_from,ci_upper_from,ci_lower_to,ci_upper_to,ci_width_from,ci_width_to
+S2_commercial,deepseek-v3,Inductor → Estricto,65.7408,65.74%,14.8148,80.5556,9.3295,22.7171,72.0965,86.9156,13.3876,14.8191
+S2_commercial,deepseek-v3,Inductor → Ultra,85.1852,85.19%,14.8148,100.0,9.3295,22.7171,96.5653,100.0,13.3876,3.4347
+S2_commercial,deepseek-v3,Estricto → Ultra,19.4444,19.44%,80.5556,100.0,72.0965,86.9156,96.5653,100.0,14.8191,3.4347
+S2_commercial,haiku,Inductor → Estricto,-12.963000000000001,-12.96%,17.5926,4.6296,11.5619,25.8495,1.9935,10.3825,14.2876,8.389
+S2_commercial,haiku,Inductor → Ultra,48.1481,48.15%,17.5926,65.7407,11.5619,25.8495,56.3881,74.012,14.2876,17.6239
+S2_commercial,haiku,Estricto → Ultra,61.11110000000001,61.11%,4.6296,65.7407,1.9935,10.3825,56.3881,74.012,8.389,17.6239
