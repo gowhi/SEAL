@@ -24,51 +24,6 @@ This work is a result of the project VIGILANT (Ref PID2024-161902OB-I00), funded
 
 ---
 
-## Repository Structure
-
-
-```
-SEAL/
-├── README.md
-├── requirements.txt                   # Python dependencies
-├── graphs_general.py                  # Combined figure generation for all strategies
-├── Models_Conf/                       # Ollama model configuration snapshots
-├── Strategy1/                         # S1: Direct Tool Injection (Integrity)
-│   ├── Phase1_2_Configuration_and_Expansion/
-│   │   ├── 2025_tfm_tool_injection_strategy1.yaml  # Adversarial seed prompts
-│   │   ├── setup_execute_benchmark.py              # PyRIT expansion pipeline
-│   │   ├── ollama_initializer.py                   # PyRIT target/scorer initializer
-│   │   ├── ollama_tool_target.py                   # Custom Ollama PyRIT target
-│   │   └── pyrit_results_strategy1.jsonl           # Raw PyRIT expansion output
-│   │   └── .env                                    # Local runtime config (excluded from git — see .env.example)
-│   ├── Phase3_Normalization/
-│   │   ├── parser_pyrit_to_promptfoo.py            # JSONL → Promptfoo JSON
-│   │   ├── convert_prompts.js                      # Schema transformation
-│   │   └── prompts_temp.json                       # Intermediate normalized output
-│   └── Phase4_Evaluation/
-│       ├── promptfoo.yaml                          # Evaluation config (local models)
-│       ├── promptfoo_commercial.yaml               # Evaluation config (commercial models)
-│       ├── prompts_final_fixed.json                # Normalized adversarial dataset (final output from Phase3)
-│       ├── parser_promptfoo_csv.py                 # Promptfoo JSON → CSV aggregation
-│       ├── eval-S1-locals.json                     # Raw evaluation output (local models)
-│       ├── eval-S1-commercial.json                 # Raw evaluation output (commercial models)
-│       └── results/                                # Aggregated CSV results
-├── Strategy2/                         # S2: System Prompt Exfiltration (Confidentiality)
-│   └── ...                            # Same structure as Strategy1
-├── Strategy3/                         # S3: Indirect Tool Injection & SDoS (Availability)
-│   └── ...                            # Same structure as Strategy1
-└── results/
-|   └── combined/
-|       └── graphs/                    # Final combined figures for all strategies
-├── manual_validation/                 # Human-annotated validation of the deterministic evaluator
-├── cyberseceval_comparison/           # External benchmark comparison (CyberSecEval)
-├── supplementary_material.pdf         # Supplementary material with extended results
-```
-
---- 
-
-Additional experimental validation artifacts (manual evaluator validation, CyberSecEval comparison, and supplementary results) are provided in `manual_validation/`, `cyberseceval_comparison/`, and `supplementary_material.pdf`.
-
 ## Installation
 
 ### Python Environment
