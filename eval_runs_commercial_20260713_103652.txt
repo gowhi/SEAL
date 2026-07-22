@@ -1,9 +1,0 @@
-Log de ejecuciones (COMERCIALES) - lun 13 jul 2026 10:36:52 CEST
-======================================
-Strategy1_commercial_run1 | eval-xX3-2026-07-13T08:36:54 | inicio: 2026-07-13 10:36:52 | fin: 2026-07-13 11:06:49 | OK (exit 100 = asserts fallidos esperados)
-Strategy1_commercial_run2 | eval-uKN-2026-07-13T09:06:53 | inicio: 2026-07-13 11:06:49 | fin: 2026-07-13 11:33:52 | OK (exit 100 = asserts fallidos esperados)
-Strategy2_commercial_run1 | eval-0c1-2026-07-13T09:33:54 | inicio: 2026-07-13 11:33:52 | fin: 2026-07-13 12:17:29 | OK (exit 100 = asserts fallidos esperados)
-Strategy2_commercial_run2 | eval-882-2026-07-13T10:17:32 | inicio: 2026-07-13 12:17:29 | fin: 2026-07-13 13:01:04 | OK (exit 100 = asserts fallidos esperados)
-Strategy3_commercial_run1 | eval-LE8-2026-07-13T11:01:07 | inicio: 2026-07-13 13:01:04 | fin: 2026-07-13 13:57:57 | OK (exit 100 = asserts fallidos esperados)
-Strategy3_commercial_run2 | eval-RSC-2026-07-13T11:58:00 | inicio: 2026-07-13 13:57:57 | fin: 2026-07-13 14:53:27 | OK (exit 100 = asserts fallidos esperados)
-======================================

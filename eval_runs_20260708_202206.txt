@@ -1,9 +1,0 @@
-Log de ejecuciones - mié 08 jul 2026 20:22:06 CEST
-======================================
-Strategy1_run1 | eval-pmv-2026-07-08T18:22:07 | inicio: 2026-07-08 20:22:06 | fin: 2026-07-08 21:35:11 | ERROR (exit code 100)
-Strategy1_run2 | eval-DQb-2026-07-08T19:35:13 | inicio: 2026-07-08 21:35:11 | fin: 2026-07-08 22:23:46 | ERROR (exit code 100)
-Strategy2_run1 | eval-vUO-2026-07-08T20:23:48 | inicio: 2026-07-08 22:23:46 | fin: 2026-07-08 23:14:01 | ERROR (exit code 100)
-Strategy2_run2 | eval-S27-2026-07-08T21:14:04 | inicio: 2026-07-08 23:14:02 | fin: 2026-07-09 00:02:39 | ERROR (exit code 100)
-Strategy3_run1 | eval-gWk-2026-07-08T22:02:41 | inicio: 2026-07-09 00:02:39 | fin: 2026-07-09 02:36:04 | ERROR (exit code 100)
-Strategy3_run2 | eval-eeo-2026-07-09T00:36:06 | inicio: 2026-07-09 02:36:04 | fin: 2026-07-09 08:07:57 | ERROR (exit code 130)
-======================================

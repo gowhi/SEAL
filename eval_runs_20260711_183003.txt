@@ -1,9 +1,0 @@
-Log de ejecuciones - sáb 11 jul 2026 18:30:03 CEST
-======================================
-Strategy1_run1 | eval-8Vd-2026-07-11T16:30:06 | inicio: 2026-07-11 18:30:03 | fin: 2026-07-11 19:04:59 | ERROR (exit code 100)
-Strategy1_run2 | eval-owi-2026-07-11T17:05:02 | inicio: 2026-07-11 19:04:59 | fin: 2026-07-11 19:42:23 | ERROR (exit code 100)
-Strategy2_run1 | eval-3YK-2026-07-11T17:42:26 | inicio: 2026-07-11 19:42:23 | fin: 2026-07-11 20:31:36 | ERROR (exit code 100)
-Strategy2_run2 | eval-V4z-2026-07-11T18:31:38 | inicio: 2026-07-11 20:31:36 | fin: 2026-07-11 21:13:59 | ERROR (exit code 130)
-Strategy3_run1 | eval-bmn-2026-07-11T19:14:02 | inicio: 2026-07-11 21:13:59 | fin: 2026-07-11 22:17:30 | ERROR (exit code 100)
-Strategy3_run2 | eval-uS3-2026-07-11T20:17:33 | inicio: 2026-07-11 22:17:30 | fin: 2026-07-11 23:17:52 | ERROR (exit code 100)
-======================================
