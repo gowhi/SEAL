@@ -1,4 +1,4 @@
-# SEAL: A Novel Methodology for Evaluating the Security of Agentic LLMs
+# SEAL: Security Evaluation of Agentic LLMs
 
 ## Abstract
 
