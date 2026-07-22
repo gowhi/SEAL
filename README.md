@@ -26,7 +26,7 @@ This work is a result of the project VIGILANT (Ref PID2024-161902OB-I00), funded
 
 ## Contents
 
-The complete files for:
+The files for:
 - Each adversarial strategy (S1, S2, S3) are located in CIA_Strategies/ 
 - All experimental outputs — manual validation, benchmark comparison, and generated figures — are available in results/ 
 - Model configuration snapshots in Models_Conf/
