@@ -8,6 +8,8 @@ The evaluation covers three adversarial strategies intended to measure confident
 
 ---
 
+The complete scripts for each adversarial strategy (S1, S2, S3) are located in CIA_Strategies/, while all experimental outputs — manual validation, benchmark comparison, and generated figures — are available in results/, and model configuration snapshots in Models_Conf/.
+
 ## Authors
 
 **I. Gosálvez-White, P. García-Teodoro, R. Magán-Carrion**  
