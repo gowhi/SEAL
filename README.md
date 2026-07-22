@@ -8,8 +8,6 @@ The evaluation covers three adversarial strategies intended to measure confident
 
 ---
 
-The complete scripts for each adversarial strategy (S1, S2, S3) are located in CIA_Strategies/, while all experimental outputs — manual validation, benchmark comparison, and generated figures — are available in results/, and model configuration snapshots in Models_Conf/.
-
 ## Authors
 
 **I. Gosálvez-White, P. García-Teodoro, R. Magán-Carrion**  
@@ -23,6 +21,15 @@ irenegwh@ugr.es · pgteodor@ugr.es · rmagan@ugr.es
 ## Funding
 
 This work is a result of the project VIGILANT (Ref PID2024-161902OB-I00), funded by the Spanish Ministry of Science, Innovation and Universities.
+
+---
+
+## Contents
+
+The complete scripts for:
+- Each adversarial strategy (S1, S2, S3) are located in CIA_Strategies/ 
+- All experimental outputs — manual validation, benchmark comparison, and generated figures — are available in results/ 
+- Model configuration snapshots in Models_Conf/.
 
 ---
 
