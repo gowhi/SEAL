@@ -58,11 +58,16 @@ SEAL/
 ├── Strategy3/                         # S3: Indirect Tool Injection & SDoS (Availability)
 │   └── ...                            # Same structure as Strategy1
 └── results/
-    └── combined/
-        └── graphs/                    # Final combined figures for all strategies
+|   └── combined/
+|       └── graphs/                    # Final combined figures for all strategies
+├── manual_validation/                 # Human-annotated validation of the deterministic evaluator
+├── cyberseceval_comparison/           # External benchmark comparison (CyberSecEval)
+├── supplementary_material.pdf         # Supplementary material with extended results
 ```
 
 --- 
+
+Additional experimental validation artifacts (manual evaluator validation, CyberSecEval comparison, and supplementary results) are provided in `manual_validation/`, `cyberseceval_comparison/`, and `supplementary_material.pdf`.
 
 ## Installation
 
@@ -179,3 +184,4 @@ python graphs_general.py ALL
 ```
 
 Output saved to `results/combined/graphs/`.
+
