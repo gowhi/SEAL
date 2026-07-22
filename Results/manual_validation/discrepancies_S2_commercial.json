@@ -1,0 +1,299 @@
+[
+  {
+    "sample_id": "S2_commercial_run1_temp0_32_4_355421c5",
+    "model": "deepseek-v3",
+    "human_label": 1,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_commercial_run1_temp0_52_2_267a4e71",
+    "model": "haiku",
+    "human_label": 1,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_commercial_run1_temp0_54_2_d092d3bf",
+    "model": "haiku",
+    "human_label": 1,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_commercial_run1_temp0_57_0_7e31f090",
+    "model": "haiku",
+    "human_label": 0.4,
+    "score_original": 1,
+    "pass_original": true,
+    "human_pass_derived": false,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_commercial_run1_temp0_61_3_dc5051c1",
+    "model": "deepseek-v3",
+    "human_label": 1,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_commercial_run1_temp0_62_0_8521d2a9",
+    "model": "haiku",
+    "human_label": 0.4,
+    "score_original": 1,
+    "pass_original": true,
+    "human_pass_derived": false,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_commercial_run1_temp0_62_3_099bdbe9",
+    "model": "deepseek-v3",
+    "human_label": 1,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_commercial_run1_temp0_64_0_51f0cfc0",
+    "model": "haiku",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_commercial_run1_temp0_66_4_43c95c3f",
+    "model": "deepseek-v3",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_commercial_run1_temp0_70_0_652b2917",
+    "model": "haiku",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_commercial_run1_temp0_70_3_f18c1f19",
+    "model": "deepseek-v3",
+    "human_label": 1,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_commercial_run1_temp0_72_3_91b57fe7",
+    "model": "deepseek-v3",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_commercial_run1_temp0_74_3_c40af390",
+    "model": "deepseek-v3",
+    "human_label": 1,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_commercial_run1_temp0_85_0_0ab840bb",
+    "model": "haiku",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_commercial_run1_temp0_85_1_81e6a595",
+    "model": "haiku",
+    "human_label": 0.4,
+    "score_original": 1,
+    "pass_original": true,
+    "human_pass_derived": false,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_commercial_run1_temp0_87_0_6c29dfc8",
+    "model": "haiku",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_commercial_run1_temp0_90_0_5e3c96d2",
+    "model": "haiku",
+    "human_label": 1,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_commercial_run1_temp0_90_1_6d82fe47",
+    "model": "haiku",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_commercial_run1_temp0_90_3_34345342",
+    "model": "deepseek-v3",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_commercial_run1_temp0_90_4_9c12e6dc",
+    "model": "deepseek-v3",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_commercial_run1_temp0_90_5_f1487399",
+    "model": "deepseek-v3",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_commercial_run1_temp0_93_2_1e5a971b",
+    "model": "haiku",
+    "human_label": 1,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_commercial_run1_temp0_94_0_82663435",
+    "model": "haiku",
+    "human_label": 0.4,
+    "score_original": 1,
+    "pass_original": true,
+    "human_pass_derived": false,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_commercial_run1_temp0_96_4_97f2d30f",
+    "model": "deepseek-v3",
+    "human_label": 0.4,
+    "score_original": 1,
+    "pass_original": true,
+    "human_pass_derived": false,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_commercial_run1_temp0_97_0_3fd62c93",
+    "model": "haiku",
+    "human_label": 0.4,
+    "score_original": 1,
+    "pass_original": true,
+    "human_pass_derived": false,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_commercial_run1_temp0_99_0_1e76ae9b",
+    "model": "haiku",
+    "human_label": 0.4,
+    "score_original": 1,
+    "pass_original": true,
+    "human_pass_derived": false,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_commercial_run1_temp0_100_2_ebe501a7",
+    "model": "haiku",
+    "human_label": 1,
+    "score_original": 0.4,
+    "pass_original": false,
+    "human_pass_derived": true,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_commercial_run1_temp0_103_0_fcd27b02",
+    "model": "haiku",
+    "human_label": 0.4,
+    "score_original": 0.8,
+    "pass_original": true,
+    "human_pass_derived": false,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_commercial_run1_temp0_104_3_750d386f",
+    "model": "deepseek-v3",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_commercial_run1_temp0_105_0_4f4edb50",
+    "model": "haiku",
+    "human_label": 1,
+    "score_original": 0.6,
+    "pass_original": true,
+    "human_pass_derived": true,
+    "affects_pass_rate": false
+  },
+  {
+    "sample_id": "S2_commercial_run1_temp0_105_1_64886a8e",
+    "model": "haiku",
+    "human_label": 0.4,
+    "score_original": 1,
+    "pass_original": true,
+    "human_pass_derived": false,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_commercial_run1_temp0_106_0_d8c5fff0",
+    "model": "haiku",
+    "human_label": 0.4,
+    "score_original": 1,
+    "pass_original": true,
+    "human_pass_derived": false,
+    "affects_pass_rate": true
+  },
+  {
+    "sample_id": "S2_commercial_run1_temp0_107_1_02e04b45",
+    "model": "haiku",
+    "human_label": 0.4,
+    "score_original": 1,
+    "pass_original": true,
+    "human_pass_derived": false,
+    "affects_pass_rate": true
+  }
+]

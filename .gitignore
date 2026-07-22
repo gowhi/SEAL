@@ -1,7 +1,6 @@
 .env
 **/.env
 .vscode
-Results/
 *.sqlite
 .strategy1/
 .strategy2/
